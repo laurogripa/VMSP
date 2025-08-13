@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Tobii.Gaming;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField]
     private GameObject enemyManager, shieldUI;
     private Vector3 originalSize;
+    public GameObject gazeIndicator;
     
 
     void Start()
@@ -27,6 +29,15 @@ public class PlayerBehavior : MonoBehaviour
         if (enemyManager.GetComponent<EnemyManager>().onShield)
         {
             gameObject.transform.localScale = gameObject.transform.localScale * 1.25f;
+        }
+
+        if (gazeIndicator == null)
+        {
+            gazeIndicator = new GameObject("GazeIndicator");
+            var renderer = gazeIndicator.AddComponent<SpriteRenderer>();
+            renderer.sprite = CreateCircleSprite();
+            renderer.color = Color.red;
+            gazeIndicator.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
         }
     }
 
@@ -96,45 +107,78 @@ public class PlayerBehavior : MonoBehaviour
 
     private void PlayerMovement()
     {
-        if(!gameOver && !waiting)
+        if (!gameOver && !waiting)
         {
-            Vector2 mousePos;
+            Vector2 inputPos;
+
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 if (Input.touchCount > 0)
                 {
-                    mousePos = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
-                    Vector2 distance = new Vector2(transform.position.x - mousePos.x, transform.position.y - mousePos.y);
-                    distance.x = distance.x < 0 ? distance.x * -1 : distance.x;
-                    distance.y = distance.y < 0 ? distance.y * -1 : distance.y;
-                    if (distance.x > 0.1f || distance.y > 0.1f)
-                    {
-                        Vector3 target = new Vector3(mousePos.x, mousePos.y, transform.position.z);
-                        Vector3 normalizedDirection = (target - transform.position).normalized;
-                        transform.position += normalizedDirection * speed * Time.deltaTime;
-                    }
-                    float AngleRad = Mathf.Atan2(transform.position.y - mousePos.y, transform.position.x - mousePos.x);
-                    float AngleDeg = Mathf.Rad2Deg * AngleRad;
-                    this.transform.rotation = Quaternion.AngleAxis(AngleDeg, Vector3.forward);
+                    inputPos = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+                    MovePlayer(inputPos);
                 }
             }
             else
             {
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 distance = new Vector2(transform.position.x - mousePos.x, transform.position.y - mousePos.y);
-                distance.x = distance.x < 0 ? distance.x * -1 : distance.x;
-                distance.y = distance.y < 0 ? distance.y * -1 : distance.y;
-                if (distance.x > 0.1f || distance.y > 0.1f)
+                GazePoint gazePoint = TobiiAPI.GetGazePoint();
+                if (gazePoint.IsValid)
                 {
-                    Vector3 target = new Vector3(mousePos.x, mousePos.y, transform.position.z);
-                    Vector3 normalizedDirection = (target - transform.position).normalized;
-                    transform.position += normalizedDirection * speed * Time.deltaTime;
+                    inputPos = Camera.main.ScreenToWorldPoint(new Vector3(gazePoint.Screen.x, gazePoint.Screen.y, 10f));
+
+                    if (!gameOver)
+                    {
+                        gazeIndicator.transform.position = inputPos;
+                    }
+
+                    gazeIndicator.transform.position = inputPos;
+                    MovePlayer(inputPos);
                 }
-                float AngleRad = Mathf.Atan2(transform.position.y - mousePos.y, transform.position.x - mousePos.x);
-                float AngleDeg = Mathf.Rad2Deg * AngleRad;
-                this.transform.rotation = Quaternion.AngleAxis(AngleDeg, Vector3.forward);
             }
         }
+    }
+
+    private void MovePlayer(Vector2 inputPos)
+    {
+        Vector2 distance = new Vector2(transform.position.x - inputPos.x, transform.position.y - inputPos.y);
+        distance.x = Mathf.Abs(distance.x);
+        distance.y = Mathf.Abs(distance.y);
+
+        if (distance.x > 0.1f || distance.y > 0.1f)
+        {
+            Vector3 target = new Vector3(inputPos.x, inputPos.y, transform.position.z);
+            Vector3 normalizedDirection = (target - transform.position).normalized;
+            transform.position += normalizedDirection * speed * Time.deltaTime;
+        }
+        float AngleRad = Mathf.Atan2(transform.position.y - inputPos.y, transform.position.x - inputPos.x);
+        float AngleDeg = Mathf.Rad2Deg * AngleRad;
+        transform.rotation = Quaternion.AngleAxis(AngleDeg, Vector3.forward);
+    }
+
+    private Sprite CreateCircleSprite()
+    {
+        Texture2D texture = new Texture2D(64, 64);
+        Color transparent = new Color(0, 0, 0, 0);
+        Color red = Color.red;
+
+        for (int y = 0; y < texture.height; y++)
+        {
+            for (int x = 0; x < texture.width; x++)
+            {
+                float distanceToCenter = Vector2.Distance(new Vector2(x, y), new Vector2(32, 32));
+                if (distanceToCenter <= 31)
+                {
+                    texture.SetPixel(x, y, red);
+                }
+                else
+                {
+                    texture.SetPixel(x, y, transparent);
+                }
+            }
+        }
+        texture.Apply();
+
+        return Sprite.Create(texture, new Rect(0, 0, 64, 64), new Vector2(0.5f, 0.5f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -146,6 +190,7 @@ public class PlayerBehavior : MonoBehaviour
         else if(collision.tag.Equals("Enemy") && !counterStarted && !hitAnimation)
         {
             gameOver = true;
+            gazeIndicator.SetActive(false);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<PolygonCollider2D>().enabled = false;
             GetComponentInChildren<ParticleSystem>().Play();
