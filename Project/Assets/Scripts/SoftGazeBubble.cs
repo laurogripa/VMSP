@@ -142,13 +142,4 @@ public class SoftGazeBubble : MonoBehaviour
         tex.Apply();
         return Sprite.Create(tex, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f));
     }
-    
-    void OnGUI()
-    {
-        GUI.Box(new Rect(10, 10, 200, 80), "");
-        GUI.Label(new Rect(15, 15, 180, 20), $"Bubble: {gazeCanvas.activeInHierarchy}");
-        GUI.Label(new Rect(15, 35, 180, 20), $"Smooth: {smoothingFactor:F2}");
-        if (gazeRect != null)
-            GUI.Label(new Rect(15, 55, 180, 20), $"Pos: ({gazeRect.anchoredPosition.x:F0}, {gazeRect.anchoredPosition.y:F0})");
-    }
 }

@@ -1560,8 +1560,12 @@ MonoBehaviour:
   enableLogging: 1
   createGazePoint: 1
   verboseLogging: 0
-  gazePointColor: {r: 1, g: 0, b: 0, a: 1}
-  gazePointSize: 1
+  gazePointColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
+  gazePointSize: 20
   gazeDistance: 5
 --- !u!4 &380138272
 Transform:
@@ -2368,6 +2372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107811392}
   - component: {fileID: 1107811391}
+  - component: {fileID: 1107811393}
   m_Layer: 0
   m_Name: BlinkToClick
   m_TagString: Untagged
@@ -2382,16 +2387,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107811390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 145e6e4acd764554394fbef236e7fa84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableBlinkClicking: 1
-  blinkMinDuration: 0.2
-  blinkMaxDuration: 0.8
-  blinkCooldown: 0.5
-  gazeGapThreshold: 0.15
+  enableSpacebarClick: 1
+  clickCooldown: 0.5
   showDebugInfo: 1
 --- !u!4 &1107811392
 Transform:
@@ -2408,6 +2410,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107811393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107811390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875de6041a283304da3e9f4e8e8e0599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1166674572
 GameObject:
   m_ObjectHideFlags: 0

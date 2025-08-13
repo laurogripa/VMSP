@@ -7,9 +7,7 @@ public class TobiiMouseController : MonoBehaviour
 {
     [Header("Eye Tracking Settings")]
     public bool enableEyeTracking = true;
-    public float blinkDurationThreshold = 0.5f; // Max duration to consider as a blink (in seconds)
     public bool showGazeCursor = true;
-    public bool useBlinkForClick = false; // Disable blink detection by default due to API issues
     
     [Header("Gaze Cursor")]
     public GameObject gazeCursorPrefab;
@@ -64,12 +62,6 @@ public class TobiiMouseController : MonoBehaviour
                 GameObject focusedObject = TobiiAPI.GetFocusedObject();
                 HandleFocusedObject(focusedObject);
             }
-            
-            // Only try blink detection if explicitly enabled
-            if (useBlinkForClick)
-            {
-                HandleBlinkDetection();
-            }
         }
         catch (System.Exception e)
         {
@@ -108,23 +100,6 @@ public class TobiiMouseController : MonoBehaviour
         }
     }
     
-    private void HandleBlinkDetection()
-    {
-        // Simplified approach - just trigger click on space key for testing
-        // This can be expanded later when we have access to proper blink detection
-        if (Input.GetKeyDown(KeyCode.Space) && lastFocusedObject != null)
-        {
-            SimulateMouseClick(lastFocusedObject);
-        }
-    }
-    
-    private void SimulateMouseClick(GameObject target)
-    {
-        // Send mouse down, then mouse up after a short delay
-        SendMouseEvent(target, "OnMouseDown");
-        StartCoroutine(DelayedMouseUp(target));
-    }
-    
     private IEnumerator DelayedMouseUp(GameObject target)
     {
         yield return new WaitForSeconds(0.1f);
@@ -142,19 +117,5 @@ public class TobiiMouseController : MonoBehaviour
     public void EnableEyeTracking(bool enable)
     {
         enableEyeTracking = enable;
-    }
-    
-    public void SetBlinkThreshold(float threshold)
-    {
-        blinkDurationThreshold = threshold;
-    }
-    
-    // Manual click trigger for testing or alternative input methods
-    public void TriggerClickOnFocusedObject()
-    {
-        if (lastFocusedObject != null)
-        {
-            SimulateMouseClick(lastFocusedObject);
-        }
     }
 }
