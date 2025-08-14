@@ -1,8 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Tobii.Gaming;
-
 
 public class SendID : MonoBehaviour
 {
@@ -10,12 +8,6 @@ public class SendID : MonoBehaviour
     private bool over;
     [SerializeField] private Sprite lighter, darker;
     [SerializeField] private SequenceManager manager;
-
-    private void Update()
-    {
-        //GameObject focusedObject = TobiiAPI.GetFocusedObject();
-        //Debug.Log(focusedObject.name);
-    }
 
     private void OnMouseUp()
     {
