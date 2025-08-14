@@ -1059,6 +1059,59 @@ MonoBehaviour:
   lighter: {fileID: 21300000, guid: 71a6254cecb2f284588b16192e888c98, type: 3}
   darker: {fileID: 21300000, guid: 681dcabd21910584dbbd788bf7edf555, type: 3}
   manager: {fileID: 1340673650}
+--- !u!1 &275059832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275059834}
+  - component: {fileID: 275059833}
+  m_Layer: 0
+  m_Name: GazeMouseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &275059833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275059832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2015a27e3911a054da989a50ad6b1883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableGazeMouse: 1
+  clickOnSpacebar: 1
+  smoothing: 0
+  toggleGazeKey: 101
+  useViewportMapping: 1
+  mapUsingWindowClient: 1
+  enforceTargetAspect: 1
+  targetAspectWidth: 16
+  targetAspectHeight: 9
+--- !u!4 &275059834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275059832}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &474435153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,3 +4528,4 @@ SceneRoots:
   - {fileID: 516463268}
   - {fileID: 992644562}
   - {fileID: 25413434}
+  - {fileID: 275059834}
