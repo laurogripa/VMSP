@@ -1,0 +1,58 @@
+.header {
+    -unity-font-definition: url("project://database/Assets/Nytrock/Global%20Nytrock%20Font/Legacy/GNF.fontsettings?fileID=12800000&guid=2eb50ef9204dcc34bbf01b4091e495e3&type=2#GNF");
+}
+
+.button-secondary {
+    font-size: 50px;
+    width: 350px;
+    -unity-text-align: middle-center;
+    height: 100px;
+    align-self: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-image: url("project://database/Assets/UI_atlas.psd?fileID=5905435694372832618&guid=bf06bfc1bfd3c424b84efa3a00af7ff4&type=3#UI_atlas_93");
+    -unity-font-definition: url("project://database/Assets/Nytrock/Global%20Nytrock%20Font/GNF%20TTF.ttf?fileID=12800000&guid=c7fdb296bed60874d867f76bdd87daa2&type=3#GNF TTF");
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    -unity-font-style: bold;
+}
+
+.button {
+    font-size: 50px;
+    width: 350px;
+    -unity-text-align: middle-center;
+    height: 100px;
+    align-self: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-image: url("project://database/Assets/UI_atlas.psd?fileID=5905435694372832618&guid=bf06bfc1bfd3c424b84efa3a00af7ff4&type=3#UI_atlas_93");
+    -unity-font-definition: url("project://database/Assets/Nytrock/Global%20Nytrock%20Font/GNF%20TTF.ttf?fileID=12800000&guid=c7fdb296bed60874d867f76bdd87daa2&type=3#GNF TTF");
+    -unity-font-style: bold;
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    -unity-text-outline-width: 1px;
+    transition-duration: 0.35s, 0.1s;
+    transition-property: all, color;
+    transition-delay: 0s, 0s;
+    transition-timing-function: ease, ease;
+}
+
+.logo {
+    max-height: 100px;
+    min-height: 100px;
+    height: 100px;
+    align-items: auto;
+    align-content: auto;
+    min-width: 100px;
+}
+
+.button:hover {
+    scale: 1.1 1.1;
+}
+
+.button:active {
+    color: rgb(255, 255, 255);
+}

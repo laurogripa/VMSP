@@ -1,0 +1,2492 @@
+fileFormatVersion: 2
+guid: ee1b4afb29b1347599bc7d9bc867960a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1914174063589556283
+    second: nudcen_0
+  - first:
+      213: -3136967588324027455
+    second: nudcen_1
+  - first:
+      213: -1869737771118094861
+    second: nudcen_2
+  - first:
+      213: -7708068180727783826
+    second: nudcen_3
+  - first:
+      213: 6338069573924495403
+    second: nudcen_4
+  - first:
+      213: 8731867700092395028
+    second: nudcen_5
+  - first:
+      213: -9141658555901655846
+    second: nudcen_6
+  - first:
+      213: -4440482459816704500
+    second: nudcen_7
+  - first:
+      213: 4149921312351611723
+    second: nudcen_8
+  - first:
+      213: 8275387501561648088
+    second: nudcen_9
+  - first:
+      213: -8893676841516556852
+    second: nudcen_10
+  - first:
+      213: 5523852369116654551
+    second: nudcen_11
+  - first:
+      213: -5046861706557990051
+    second: nudcen_12
+  - first:
+      213: -4033317132707154072
+    second: nudcen_13
+  - first:
+      213: -7810567213475788087
+    second: nudcen_14
+  - first:
+      213: 8334395816568276862
+    second: nudcen_15
+  - first:
+      213: 5929037050342615421
+    second: nudcen_16
+  - first:
+      213: -5662774613605420854
+    second: nudcen_17
+  - first:
+      213: -3819494024388237948
+    second: nudcen_18
+  - first:
+      213: 1456922382971686992
+    second: nudcen_19
+  - first:
+      213: 5708048092416616693
+    second: nudcen_20
+  - first:
+      213: 7239649363363330723
+    second: nudcen_21
+  - first:
+      213: 4175587816002655217
+    second: nudcen_22
+  - first:
+      213: 2030849621181338156
+    second: nudcen_23
+  - first:
+      213: 8534311917764796466
+    second: nudcen_24
+  - first:
+      213: 1916019862696787222
+    second: nudcen_25
+  - first:
+      213: 1679364452518353389
+    second: nudcen_26
+  - first:
+      213: -29015264659145095
+    second: nudcen_27
+  - first:
+      213: 4775234526141454866
+    second: nudcen_28
+  - first:
+      213: -3096874411166720470
+    second: nudcen_29
+  - first:
+      213: 5007820075514499386
+    second: nudcen_30
+  - first:
+      213: -6945880792150582652
+    second: nudcen_31
+  - first:
+      213: -3739301220378778994
+    second: nudcen_32
+  - first:
+      213: -5723240322659487403
+    second: nudcen_33
+  - first:
+      213: 7356263457688993079
+    second: nudcen_34
+  - first:
+      213: 5272754911175628958
+    second: nudcen_35
+  - first:
+      213: 5787316205057842361
+    second: nudcen_36
+  - first:
+      213: -3474539790756316089
+    second: nudcen_37
+  - first:
+      213: 8183098777214473778
+    second: nudcen_38
+  - first:
+      213: -4693545707644835474
+    second: nudcen_39
+  - first:
+      213: 2453929973998033748
+    second: nudcen_40
+  - first:
+      213: -6901069128860037321
+    second: nudcen_41
+  - first:
+      213: 1433321227353508682
+    second: nudcen_42
+  - first:
+      213: -5741135702127297384
+    second: nudcen_43
+  - first:
+      213: 9030647724113019154
+    second: nudcen_44
+  - first:
+      213: -8239403702186305690
+    second: nudcen_45
+  - first:
+      213: -3536161458585539230
+    second: nudcen_46
+  - first:
+      213: 4547170029525638747
+    second: nudcen_47
+  - first:
+      213: -7219893347818921334
+    second: nudcen_48
+  - first:
+      213: 7613978767182490987
+    second: nudcen_49
+  - first:
+      213: -7166395495419294539
+    second: nudcen_50
+  - first:
+      213: -8757696371908285505
+    second: nudcen_51
+  - first:
+      213: 3009630980534339968
+    second: nudcen_52
+  - first:
+      213: -512511711487296408
+    second: nudcen_53
+  - first:
+      213: 8788002728318717339
+    second: nudcen_54
+  - first:
+      213: 4019621465673572344
+    second: nudcen_55
+  - first:
+      213: -4080080547555737633
+    second: nudcen_56
+  - first:
+      213: -4789637314436595143
+    second: nudcen_57
+  - first:
+      213: -7426378763831433342
+    second: nudcen_58
+  - first:
+      213: -435435691714586516
+    second: nudcen_59
+  - first:
+      213: -607564147975963674
+    second: nudcen_60
+  - first:
+      213: -1720887213754820311
+    second: nudcen_61
+  - first:
+      213: 4427173775704929353
+    second: nudcen_62
+  - first:
+      213: 3304187479647290653
+    second: nudcen_63
+  - first:
+      213: -8867709338992110294
+    second: nudcen_64
+  - first:
+      213: -5812922912449401094
+    second: nudcen_65
+  - first:
+      213: 1671599314727163194
+    second: nudcen_66
+  - first:
+      213: -6674968262052704929
+    second: nudcen_67
+  - first:
+      213: 3843373411366759611
+    second: nudcen_68
+  - first:
+      213: -1356161451536687441
+    second: nudcen_69
+  - first:
+      213: -3264904059586658380
+    second: nudcen_70
+  - first:
+      213: -6322364819476534127
+    second: nudcen_71
+  - first:
+      213: 5528472923003129238
+    second: nudcen_72
+  - first:
+      213: 4151050357583205782
+    second: nudcen_73
+  - first:
+      213: -7713607230230478526
+    second: nudcen_74
+  - first:
+      213: -3177690502349177792
+    second: nudcen_75
+  - first:
+      213: -7470981452226378787
+    second: nudcen_76
+  - first:
+      213: 8310211443776920183
+    second: nudcen_77
+  - first:
+      213: 3060738952403181886
+    second: nudcen_78
+  - first:
+      213: 1658212523071318137
+    second: nudcen_79
+  - first:
+      213: 411481819878195457
+    second: nudcen_80
+  - first:
+      213: 3810996779987439976
+    second: nudcen_81
+  - first:
+      213: -6263302570200663453
+    second: nudcen_82
+  - first:
+      213: -1293291964299869975
+    second: nudcen_83
+  - first:
+      213: 6499903429300298601
+    second: nudcen_84
+  - first:
+      213: 9063405573196608688
+    second: nudcen_85
+  - first:
+      213: 46256368949897646
+    second: nudcen_86
+  - first:
+      213: -1832651512698160868
+    second: nudcen_87
+  - first:
+      213: -4041118408798626728
+    second: nudcen_88
+  - first:
+      213: -5194955719430395404
+    second: nudcen_89
+  - first:
+      213: -7622881865992750933
+    second: nudcen_90
+  - first:
+      213: -6067567061469404378
+    second: nudcen_91
+  - first:
+      213: 6873875743938813258
+    second: nudcen_92
+  - first:
+      213: -7635512740256340827
+    second: nudcen_93
+  - first:
+      213: -5746396165276729969
+    second: nudcen_94
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nudcen_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 480
+        width: 21
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf7a75b4dc7f65e0800000000000000
+      internalID: -1914174063589556283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_1
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 574
+        width: 7
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c3580a49904774d0800000000000000
+      internalID: -3136967588324027455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_2
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 600
+        width: 7
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f51069476b5d06e0800000000000000
+      internalID: -1869737771118094861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 621
+        width: 21
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e9a3724d0770590800000000000000
+      internalID: -7708068180727783826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_4
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 663
+        width: 8
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b202b7b62b855f750800000000000000
+      internalID: 6338069573924495403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_5
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 674
+        width: 21
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ed6b9e863dd2970800000000000000
+      internalID: 8731867700092395028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_6
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 696
+        width: 21
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4429d5afd422180800000000000000
+      internalID: -9141658555901655846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_7
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 709
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06c54fbabc3062c0800000000000000
+      internalID: -4440482459816704500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_8
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 718
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b6a84427b779930800000000000000
+      internalID: 4149921312351611723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_9
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 723
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d31a49761518d270800000000000000
+      internalID: 8275387501561648088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_10
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 724
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd994a8800539480800000000000000
+      internalID: -8893676841516556852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_11
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 723
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dbe5ec867aa8ac40800000000000000
+      internalID: 5523852369116654551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_12
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 481
+        width: 18
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5bd61e6402f5f9b0800000000000000
+      internalID: -5046861706557990051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 454
+        width: 21
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8673e7eef67c608c0800000000000000
+      internalID: -4033317132707154072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_14
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 447
+        width: 7
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca8672608a4b9390800000000000000
+      internalID: -7810567213475788087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_15
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 440
+        width: 22
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77cd0076d8b9a370800000000000000
+      internalID: 8334395816568276862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_16
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 443
+        width: 21
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d792dcda8cb284250800000000000000
+      internalID: 5929037050342615421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_17
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 453
+        width: 7
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0f2f8dd78c961b0800000000000000
+      internalID: -5662774613605420854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_18
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 460
+        width: 7
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485ac9edb6e6efac0800000000000000
+      internalID: -3819494024388237948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_19
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 468
+        width: 7
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050d75e2037083410800000000000000
+      internalID: 1456922382971686992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_20
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 490
+        width: 11
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8a65d5f7f073f40800000000000000
+      internalID: 5708048092416616693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_21
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 491
+        width: 21
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa77a91db6687460800000000000000
+      internalID: 7239649363363330723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_22
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 491
+        width: 8
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f39945defaa2f930800000000000000
+      internalID: 4175587816002655217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_23
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 491
+        width: 21
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2210c678f60f2c10800000000000000
+      internalID: 2030849621181338156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_24
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 490
+        width: 21
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 230e0c4f877ff6670800000000000000
+      internalID: 8534311917764796466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_25
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 490
+        width: 21
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d72a2e9e1179a10800000000000000
+      internalID: 1916019862696787222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_26
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 490
+        width: 7
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de956c8621d4e4710800000000000000
+      internalID: 1679364452518353389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_27
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 490
+        width: 7
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e7de045cae89ff0800000000000000
+      internalID: -29015264659145095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_28
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 490
+        width: 7
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a97d1508a054240800000000000000
+      internalID: 4775234526141454866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_29
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 490
+        width: 22
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e19688121b505d0800000000000000
+      internalID: -3096874411166720470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_30
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 491
+        width: 8
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a319c1c73d95f7540800000000000000
+      internalID: 5007820075514499386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_31
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 491
+        width: 21
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ad7ab68364b9f90800000000000000
+      internalID: -6945880792150582652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_32
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 527
+        width: 7
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82632b0a555b1cc0800000000000000
+      internalID: -3739301220378778994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_33
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 534
+        width: 7
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55170b3ef37f290b0800000000000000
+      internalID: -5723240322659487403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_34
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 545
+        width: 7
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d3dbdb3a2b61660800000000000000
+      internalID: 7356263457688993079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_35
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 549
+        width: 7
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98d15cc7a69c2940800000000000000
+      internalID: 5272754911175628958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_36
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 552
+        width: 21
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc955d0d6da05050800000000000000
+      internalID: 5787316205057842361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_37
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 553
+        width: 7
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c720e1874f7cfc0800000000000000
+      internalID: -3474539790756316089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_38
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 425
+        width: 19
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2365dc16bf4309170800000000000000
+      internalID: 8183098777214473778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_39
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 188
+        width: 8
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6925cedb0d2ddeb0800000000000000
+      internalID: -4693545707644835474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_40
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 188
+        width: 7
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b16d35f4c1e0220800000000000000
+      internalID: 2453929973998033748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_41
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 188
+        width: 21
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f02e3d03a7a30a0800000000000000
+      internalID: -6901069128860037321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_42
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 188
+        width: 7
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bce6def0e24e310800000000000000
+      internalID: 1433321227353508682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_43
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 188
+        width: 21
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cb36b2f736350b0800000000000000
+      internalID: -5741135702127297384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_44
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 188
+        width: 22
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2114277324e435d70800000000000000
+      internalID: 9030647724113019154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_45
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 188
+        width: 7
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6679522bcf1c7ad80800000000000000
+      internalID: -8239403702186305690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_46
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 188
+        width: 7
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26de49883e70deec0800000000000000
+      internalID: -3536161458585539230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_47
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 346
+        width: 21
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e9d27cc0bca1f30800000000000000
+      internalID: 4547170029525638747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_48
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 331
+        width: 7
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a822c07b049cdcb90800000000000000
+      internalID: -7219893347818921334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_49
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 323
+        width: 7
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d674129594aa960800000000000000
+      internalID: 7613978767182490987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_50
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 315
+        width: 21
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bcc29f1449db8c90800000000000000
+      internalID: -7166395495419294539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_51
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 313
+        width: 8
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbbedadcc89667680800000000000000
+      internalID: -8757696371908285505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_52
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 312
+        width: 21
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08982cb5e6b54c920800000000000000
+      internalID: 3009630980534339968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_53
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 313
+        width: 21
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c7295505133e8f0800000000000000
+      internalID: -512511711487296408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_54
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 316
+        width: 21
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9dc99aabe145f970800000000000000
+      internalID: 8788002728318717339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_55
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 322
+        width: 7
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff12091d6098c730800000000000000
+      internalID: 4019621465673572344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_56
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 331
+        width: 7
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf75f3fb54a067c0800000000000000
+      internalID: -4080080547555737633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_57
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 336
+        width: 7
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9320d063d3ac78db0800000000000000
+      internalID: -4789637314436595143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_58
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 346
+        width: 22
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 287a2566cd330f890800000000000000
+      internalID: -7426378763831433342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_59
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 370
+        width: 8
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6853d0ab8505f9f0800000000000000
+      internalID: -435435691714586516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_60
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 389
+        width: 19
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eb31ad50af7197f0800000000000000
+      internalID: -607564147975963674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_61
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 384
+        width: 7
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 929d1ad523e2e18e0800000000000000
+      internalID: -1720887213754820311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_62
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 384
+        width: 7
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94431d3c71b707d30800000000000000
+      internalID: 4427173775704929353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_63
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 385
+        width: 7
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d158ba3a105dadd20800000000000000
+      internalID: 3304187479647290653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_64
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 385
+        width: 7
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2516fdd6519fe480800000000000000
+      internalID: -8867709338992110294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_65
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 387
+        width: 21
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe69b8c869545fa0800000000000000
+      internalID: -5812922912449401094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_66
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 397
+        width: 7
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35591168b6b23710800000000000000
+      internalID: 1671599314727163194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_67
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 188
+        width: 21
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5d875d2bbfbd53a0800000000000000
+      internalID: -6674968262052704929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_68
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 188
+        width: 7
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbc62bb21c7665530800000000000000
+      internalID: 3843373411366759611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_69
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 188
+        width: 21
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faed3175852fd2de0800000000000000
+      internalID: -1356161451536687441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_70
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 188
+        width: 7
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf3b965e0bb0b2d0800000000000000
+      internalID: -3264904059586658380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_71
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 188
+        width: 6
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19cacaaa1b27248a0800000000000000
+      internalID: -6322364819476534127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_72
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 188
+        width: 21
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d87f515d419bc40800000000000000
+      internalID: 5528472923003129238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_73
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 188
+        width: 7
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69551889e4e7b9930800000000000000
+      internalID: 4151050357583205782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_74
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 188
+        width: 21
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2414a31b713c3f490800000000000000
+      internalID: -7713607230230478526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_75
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 188
+        width: 21
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c3851035396e3d0800000000000000
+      internalID: -3177690502349177792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_76
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 188
+        width: 21
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd3c380c3fdb15890800000000000000
+      internalID: -7470981452226378787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_77
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 188
+        width: 6
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a95ba574dc35370800000000000000
+      internalID: 8310211443776920183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_78
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 188
+        width: 7
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3161385cdde97a20800000000000000
+      internalID: 3060738952403181886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_79
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 188
+        width: 7
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97825cf0187230710800000000000000
+      internalID: 1658212523071318137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_80
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 188
+        width: 21
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1010f59f880e5b500800000000000000
+      internalID: 411481819878195457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_81
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 188
+        width: 7
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8611f4f316163e430800000000000000
+      internalID: 3810996779987439976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_82
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 188
+        width: 21
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36af56e2f774419a0800000000000000
+      internalID: -6263302570200663453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_83
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 188
+        width: 7
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e00a058fcd4d0ee0800000000000000
+      internalID: -1293291964299869975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_84
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 188
+        width: 7
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963a9c12bbb443a50800000000000000
+      internalID: 6499903429300298601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_85
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 188
+        width: 7
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4fdad495fa7cd70800000000000000
+      internalID: 9063405573196608688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_86
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 188
+        width: 7
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9abd72ce554a000800000000000000
+      internalID: 46256368949897646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_87
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 188
+        width: 21
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c193b84b82d1196e0800000000000000
+      internalID: -1832651512698160868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_88
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 188
+        width: 7
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c144cc7301be7c0800000000000000
+      internalID: -4041118408798626728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_89
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 61
+        width: 88
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9a7771c4fc7e7b0800000000000000
+      internalID: -5194955719430395404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_90
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 59
+        width: 87
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba83cb4a455163690800000000000000
+      internalID: -7622881865992750933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_91
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 61
+        width: 92
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623614aa7ebabcba0800000000000000
+      internalID: -6067567061469404378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_92
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 59
+        width: 85
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d95abd199e46f50800000000000000
+      internalID: 6873875743938813258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_93
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 61
+        width: 71
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a42d0f0e95390690800000000000000
+      internalID: -7635512740256340827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nudcen_94
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 61
+        width: 89
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d73062223b040b0800000000000000
+      internalID: -5746396165276729969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
