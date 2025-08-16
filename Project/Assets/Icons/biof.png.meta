@@ -1,0 +1,1192 @@
+fileFormatVersion: 2
+guid: b89cfd09dcaea4945ac07d8bce16371f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4338680508116274237
+    second: biof_0
+  - first:
+      213: 8236184229718914401
+    second: biof_1
+  - first:
+      213: -8382252511857558058
+    second: biof_2
+  - first:
+      213: 3949491896021105991
+    second: biof_3
+  - first:
+      213: -995829190935369252
+    second: biof_4
+  - first:
+      213: 2292822144849337490
+    second: biof_5
+  - first:
+      213: -4213053432234038793
+    second: biof_6
+  - first:
+      213: 4837842784168096635
+    second: biof_7
+  - first:
+      213: 8230195189199455160
+    second: biof_8
+  - first:
+      213: -332685392280916681
+    second: biof_9
+  - first:
+      213: -6480307271316966474
+    second: biof_10
+  - first:
+      213: 9034977496069006008
+    second: biof_11
+  - first:
+      213: -3432017486536633891
+    second: biof_12
+  - first:
+      213: -2918475878490129345
+    second: biof_13
+  - first:
+      213: 7267431962782282609
+    second: biof_14
+  - first:
+      213: -7262947528214831983
+    second: biof_15
+  - first:
+      213: 6420390501191999527
+    second: biof_16
+  - first:
+      213: 472584991763923955
+    second: biof_17
+  - first:
+      213: -165492944378938456
+    second: biof_18
+  - first:
+      213: 1315947320117922513
+    second: biof_19
+  - first:
+      213: -873294753373842734
+    second: biof_20
+  - first:
+      213: -3662910536834765209
+    second: biof_21
+  - first:
+      213: 3397212285594849056
+    second: biof_22
+  - first:
+      213: 3880246174819746899
+    second: biof_23
+  - first:
+      213: 2844600645221993970
+    second: biof_24
+  - first:
+      213: 3380101467954784974
+    second: biof_25
+  - first:
+      213: -1269262909390570467
+    second: biof_26
+  - first:
+      213: 8476780003748344674
+    second: biof_27
+  - first:
+      213: 9100250678466748008
+    second: biof_28
+  - first:
+      213: -4461485871594770542
+    second: biof_29
+  - first:
+      213: 5278875900794382523
+    second: biof_30
+  - first:
+      213: 8332489594154048797
+    second: biof_31
+  - first:
+      213: -7339854073286173481
+    second: biof_32
+  - first:
+      213: -4269337522678657673
+    second: biof_33
+  - first:
+      213: 5180618258231740891
+    second: biof_34
+  - first:
+      213: 707428316907787601
+    second: biof_35
+  - first:
+      213: 898669629835389199
+    second: biof_36
+  - first:
+      213: -3135706128160137891
+    second: biof_37
+  - first:
+      213: -7841908869592013999
+    second: biof_38
+  - first:
+      213: 6071906050986911559
+    second: biof_39
+  - first:
+      213: 7246390050915293998
+    second: biof_40
+  - first:
+      213: 5656497676941241008
+    second: biof_41
+  - first:
+      213: 1943745760235029551
+    second: biof_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: biof_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 6
+        width: 183
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c371dfa019e9c3c0800000000000000
+      internalID: -4338680508116274237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_1
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 96
+        width: 40
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 165f1157bedcc4270800000000000000
+      internalID: 8236184229718914401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_2
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 96
+        width: 80
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ddba1560c14cab80800000000000000
+      internalID: -8382252511857558058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_3
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 95
+        width: 77
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d3f9144f96fc630800000000000000
+      internalID: 3949491896021105991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_4
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 95
+        width: 77
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9255180aa1e22f0800000000000000
+      internalID: -995829190935369252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_5
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 96
+        width: 75
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29cd4e4c79db1df10800000000000000
+      internalID: 2292822144849337490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_6
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 68
+        width: 396
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f923ff993a3885c0800000000000000
+      internalID: -4213053432234038793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_7
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 43
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73b6855168732340800000000000000
+      internalID: 4837842784168096635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 43
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3cc5c4be6873270800000000000000
+      internalID: 8230195189199455160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_9
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 43
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d622bf560126bf0800000000000000
+      internalID: -332685392280916681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_10
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 43
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b375c1fed25116a0800000000000000
+      internalID: -6480307271316966474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_11
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 43
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b267dec920b26d70800000000000000
+      internalID: 9034977496069006008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_12
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 43
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd11e0497460f50d0800000000000000
+      internalID: -3432017486536633891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_13
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 43
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cbc09b6ad7f77d0800000000000000
+      internalID: -2918475878490129345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_14
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 43
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17335fa9dda1bd460800000000000000
+      internalID: 7267431962782282609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_15
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 43
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c147e24b3d43b90800000000000000
+      internalID: -7262947528214831983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_16
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 43
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72067d6e42fc91950800000000000000
+      internalID: 6420390501191999527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_17
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 43
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f30540db85fe8600800000000000000
+      internalID: 472584991763923955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_18
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 43
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8abb57d3b0d04bdf0800000000000000
+      internalID: -165492944378938456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_19
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 43
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da81ce8d1f234210800000000000000
+      internalID: 1315947320117922513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_20
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 43
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d290f87c0f61e3f0800000000000000
+      internalID: -873294753373842734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_21
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 43
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76eadef064aba2dc0800000000000000
+      internalID: -3662910536834765209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_22
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 42
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f49751392552f20800000000000000
+      internalID: 3397212285594849056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_23
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 43
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354033b665769d530800000000000000
+      internalID: 3880246174819746899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_24
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 43
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdcd4a273d0a7720800000000000000
+      internalID: 2844600645221993970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_25
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 43
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecaa836606888ee20800000000000000
+      internalID: 3380101467954784974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_26
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 7
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c3237db1ca26ee0800000000000000
+      internalID: -1269262909390570467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_27
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 8
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263fd82608293a570800000000000000
+      internalID: 8476780003748344674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_28
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 8
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e9401e6c59a4e70800000000000000
+      internalID: 9100250678466748008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_29
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 8
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f6b2ddc3e9512c0800000000000000
+      internalID: -4461485871594770542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_30
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 7
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb82830c9a5524940800000000000000
+      internalID: 5278875900794382523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_31
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 7
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1dd0327323f2a370800000000000000
+      internalID: 8332489594154048797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_32
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 7
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dcd29acb99932a90800000000000000
+      internalID: -7339854073286173481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_33
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 8
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d0e7e942440c4c0800000000000000
+      internalID: -4269337522678657673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_34
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 8
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd94ec69bd045e740800000000000000
+      internalID: 5180618258231740891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_35
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 7
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155575d5e4a41d900800000000000000
+      internalID: 707428316907787601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_36
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 8
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0925c85447b87c00800000000000000
+      internalID: 898669629835389199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_37
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 7
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5ddffed3ebbb74d0800000000000000
+      internalID: -3135706128160137891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_38
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 8
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 153abfa6e61fb2390800000000000000
+      internalID: -7841908869592013999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_39
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 8
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 747ae9e026eb34450800000000000000
+      internalID: 6071906050986911559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_40
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 8
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b1bb8bb59509460800000000000000
+      internalID: 7246390050915293998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_41
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 8
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0baa7e2faaaef7e40800000000000000
+      internalID: 5656497676941241008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: biof_42
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 7
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f240b74787299fa10800000000000000
+      internalID: 1943745760235029551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
