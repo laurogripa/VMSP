@@ -9,26 +9,20 @@ public class StageManager : MonoBehaviour
     public GameObject counterObject;
     public Text counterText;
     [SerializeField]
-    private GameObject gameOverScreen, winScreen, gameElements;
+    private GameObject gameOverScreen, winScreen, gameElements, gameScreen;
     [SerializeField]
-    private GameObject[] gameScreens, lifeUIs;
+    private GameObject[] lifeUIs;
 
     public void SetGameOver()
     {
         BackAction.onGameOver = true;
-        for (int i = 0; i < gameScreens.Length; i++)
-        {
-            gameScreens[i].SetActive(false);
-        }
+        if (gameScreen != null) gameScreen.SetActive(false);
         gameOverScreen.SetActive(true);
     }
     public void SetWin()
     {
         BackAction.onGameOver = true;
-        for (int i = 0; i < gameScreens.Length; i++)
-        {
-            gameScreens[i].SetActive(false);
-        }
+        if (gameScreen != null) gameScreen.SetActive(false);
         winScreen.SetActive(true);
     }
 
@@ -42,63 +36,32 @@ public class StageManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Defense")
         {
-            StartCoroutine(AutoNoIntro());
+            EnemyManager eM;
+            if (GameObject.Find("Enemies") == null)
+            {
+                eM = GameObject.Find("Enemies(Clone)").GetComponent<EnemyManager>();
+            }
+            else
+            {
+                eM = GameObject.Find("Enemies").GetComponent<EnemyManager>();
+            }
+            eM.level = 0;
+            eM.IncreaseLevel();
+            if (gameScreen != null) gameScreen.SetActive(false);
+            var player = GameObject.Find("Player") ?? GameObject.Find("Player(Clone)");
+            if (player != null)
+            {
+                player.GetComponent<PlayerBehavior>().waiting = false;
+            }
         }
     }
 
-    private IEnumerator AutoNoIntro()
-    {
-        yield return null;
-        NoIntro();
-    }
 
-    public void PlayIntro()
-    {
-        EnemyManager eM;
-        if (GameObject.Find("Enemies") == null)
-        {
-            eM = GameObject.Find("Enemies(Clone)").GetComponent<EnemyManager>();
-        }
-        else
-        {
-            eM = GameObject.Find("Enemies").GetComponent<EnemyManager>();
-        }
-        eM.IncreaseLevel();
-        gameScreens[0].SetActive(false);
-        GameObject.Find("Player").GetComponent<PlayerBehavior>().waiting = false;
-    }
-
-    public void NoIntro()
-    {
-        EnemyManager eM;
-        if (GameObject.Find("Enemies") == null)
-        {
-            eM = GameObject.Find("Enemies(Clone)").GetComponent<EnemyManager>();
-        }
-        else
-        {
-            eM = GameObject.Find("Enemies").GetComponent<EnemyManager>();
-        }
-        eM.level = 0;
-        eM.IncreaseLevel();
-        gameScreens[0].SetActive(false);
-        if (GameObject.Find("Player") == null)
-        {
-            GameObject.Find("Player(Clone)").GetComponent<PlayerBehavior>().waiting = false;
-        }
-        else
-        {
-            GameObject.Find("Player").GetComponent<PlayerBehavior>().waiting = false;
-        }
-    }
 
     public void PlayAgain()
     {
         BackAction.onGameOver = false;
-        for (int i = 0; i < gameScreens.Length; i++)
-        {
-            gameScreens[i].SetActive(true);
-        }
+        if (gameScreen != null) gameScreen.SetActive(true);
         for (int i = 0; i < lifeUIs.Length; i++)
         {
             lifeUIs[i].SetActive(true);

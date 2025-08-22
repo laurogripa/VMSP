@@ -190,7 +190,6 @@ public class PlayerBehavior : MonoBehaviour
         }
         else if (collision.tag.Equals("Enemy") && !counterStarted)
         {
-            // Enemies always explode on touch; player only dies if not invincible
             var chaser = collision.GetComponent<ChaserEnemy>();
             if (chaser != null)
             {

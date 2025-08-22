@@ -1230,7 +1230,6 @@ MonoBehaviour:
   gameElements: {fileID: 797998042890352825, guid: 07411dade5791da4ca022204871b12fd,
     type: 3}
   gameScreens:
-  - {fileID: 0}
   - {fileID: 799539485}
   lifeUIs:
   - {fileID: 1515862297}
