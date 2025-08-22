@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         lifesUI = new GameObject[5];
-        for(int i = 0; i < lifesUI.Length; i++)
+        for (int i = 0; i < lifesUI.Length; i++)
         {
             lifesUI[i] = GameObject.Find("Life_" + i);
         }
@@ -35,13 +35,13 @@ public class EnemyManager : MonoBehaviour
 
     public void IncreaseLevel()
     {
-        foreach(GameObject e in activeGameObjects)
+        foreach (GameObject e in activeGameObjects)
         {
             Destroy(e);
         }
 
         level += 1;
-        if(lifes < 5)
+        if (lifes < 5)
         {
             ChangeLife(1);
         }
@@ -55,11 +55,40 @@ public class EnemyManager : MonoBehaviour
         {
             SubStage.transform.SetParent(GameObject.Find("GameElements").transform);
         }
+
+        // Defense: create a hidden template and remove fixed enemies
+        var spawner = GameObject.FindObjectOfType<DefenseEnemySpawner>();
+        var fixedEnemies = SubStage.GetComponentsInChildren<EnemyBehavior>(true);
+        GameObject templateClone = null;
+        if (fixedEnemies != null && fixedEnemies.Length > 0)
+        {
+            templateClone = Instantiate(fixedEnemies[0].gameObject);
+            templateClone.name = fixedEnemies[0].gameObject.name + "_Template";
+            templateClone.SetActive(false);
+            var ebOnTemplate = templateClone.GetComponent<EnemyBehavior>();
+            if (ebOnTemplate != null) ebOnTemplate.enabled = false;
+            if (GameObject.Find("GameElements") == null)
+            {
+                templateClone.transform.SetParent(GameObject.Find("GameElements(Clone)").transform);
+            }
+            else
+            {
+                templateClone.transform.SetParent(GameObject.Find("GameElements").transform);
+            }
+        }
+        for (int i = 0; i < fixedEnemies.Length; i++)
+        {
+            Destroy(fixedEnemies[i].gameObject);
+        }
+        if (spawner != null && templateClone != null)
+        {
+            spawner.SetTemplate(templateClone);
+        }
     }
 
     public void ChangeLife(int number)
     {
-        if(level > 0)
+        if (level > 0)
         {
             lifes += number;
         }
