@@ -38,6 +38,20 @@ public class StageManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Defense")
+        {
+            StartCoroutine(AutoNoIntro());
+        }
+    }
+
+    private IEnumerator AutoNoIntro()
+    {
+        yield return null;
+        NoIntro();
+    }
+
     public void PlayIntro()
     {
         EnemyManager eM;
