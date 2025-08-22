@@ -27,7 +27,7 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/Genius.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/Stage 3.unity
+    m_path: Assets/Scenes/Defense.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Stage 4.unity
   - m_enabled: 1

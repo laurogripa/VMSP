@@ -16,7 +16,7 @@ public class PlayerBehavior : MonoBehaviour
     private GameObject enemyManager, shieldUI;
     private Vector3 originalSize;
     public GameObject gazeIndicator;
-    
+
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!BackAction.onPause)
+        if (!BackAction.onPause)
         {
             PlayerMovement();
             if (counterStarted)
@@ -62,7 +62,7 @@ public class PlayerBehavior : MonoBehaviour
                     timeTo = 3;
                     enemyManager.GetComponent<EnemyManager>().counterObject.SetActive(false);
                     enemyManager.GetComponent<EnemyManager>().IncreaseLevel();
-                    GameObject P = Instantiate(Resources.Load("Stage 3/Player") as GameObject);
+                    GameObject P = Instantiate(Resources.Load("Defense/Player") as GameObject);
                     if (GameObject.Find("GameElements") == null)
                     {
                         P.transform.SetParent(GameObject.Find("GameElements(Clone)").transform);
@@ -74,11 +74,11 @@ public class PlayerBehavior : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            if(hitAnimation)
+            if (hitAnimation)
             {
                 timeToBlink += Time.deltaTime;
                 hitAnimationTime += Time.deltaTime;
-                if(timeToBlink >= 0.25)
+                if (timeToBlink >= 0.25)
                 {
                     blink = !blink;
                     if (blink)
@@ -94,10 +94,10 @@ public class PlayerBehavior : MonoBehaviour
                     timeToBlink = 0;
                 }
 
-                if(hitAnimationTime > 5)
+                if (hitAnimationTime > 5)
                 {
                     hitAnimation = false;
-                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                     shieldUI.GetComponent<Image>().color = new Color(1, 1, 1, 0);
                     blink = true;
                 }
@@ -183,11 +183,11 @@ public class PlayerBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag.Equals("Enemy") && !counterStarted && enemyManager.GetComponent<EnemyManager>().onShield)
+        if (collision.tag.Equals("Enemy") && !counterStarted && enemyManager.GetComponent<EnemyManager>().onShield)
         {
             TurnShieldOff();
         }
-        else if(collision.tag.Equals("Enemy") && !counterStarted && !hitAnimation)
+        else if (collision.tag.Equals("Enemy") && !counterStarted && !hitAnimation)
         {
             gameOver = true;
             gazeIndicator.SetActive(false);
@@ -199,7 +199,7 @@ public class PlayerBehavior : MonoBehaviour
         else if (collision.tag.Equals("WinWall") && !hitAnimation)
         {
             waiting = true;
-            if(enemyManager.GetComponent<EnemyManager>().level < 10)
+            if (enemyManager.GetComponent<EnemyManager>().level < 10)
             {
                 counterStarted = true;
                 enemyManager.GetComponent<EnemyManager>().counterObject.SetActive(true);
@@ -218,8 +218,8 @@ public class PlayerBehavior : MonoBehaviour
         enemyManager.GetComponent<EnemyManager>().ChangeLife(-1);
         if (enemyManager.GetComponent<EnemyManager>().lifes > 0)
         {
-            GameObject P = Instantiate(Resources.Load("Stage 3/Player") as GameObject);
-            if(GameObject.Find("GameElements") == null)
+            GameObject P = Instantiate(Resources.Load("Defense/Player") as GameObject);
+            if (GameObject.Find("GameElements") == null)
             {
                 P.transform.SetParent(GameObject.Find("GameElements(Clone)").transform);
             }
@@ -238,7 +238,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public void ManageBuff(int id)
     {
-        switch(id)
+        switch (id)
         {
             case 0:
                 enemyManager.GetComponent<EnemyManager>().ChangeLife(1);

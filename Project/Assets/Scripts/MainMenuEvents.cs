@@ -14,7 +14,7 @@ public class MainMenuEvents : MonoBehaviour
 
     private Button _labyrinthButton;
     private Button _geniusButton;
-    private Button _shieldButton;
+    private Button _defenseButton;
     private Button _selectButton;
 
     private void Awake()
@@ -30,7 +30,7 @@ public class MainMenuEvents : MonoBehaviour
 
         _labyrinthButton = _document.rootVisualElement.Q<Button>("Labyrinth");
         _geniusButton = _document.rootVisualElement.Q<Button>("Genius");
-        _shieldButton = _document.rootVisualElement.Q<Button>("Shield");
+        _defenseButton = _document.rootVisualElement.Q<Button>("Defense");
         _selectButton = _document.rootVisualElement.Q<Button>("Select");
 
         _playButton.RegisterCallback<ClickEvent>(OnPlayButtonClicked);
@@ -39,7 +39,7 @@ public class MainMenuEvents : MonoBehaviour
 
         _labyrinthButton.RegisterCallback<ClickEvent>(OnLabyrinthButtonClicked);
         _geniusButton.RegisterCallback<ClickEvent>(OnGeniusButtonClicked);
-        _shieldButton.RegisterCallback<ClickEvent>(OnShieldButtonClicked);
+        _defenseButton.RegisterCallback<ClickEvent>(OnDefenseButtonClicked);
         _selectButton.RegisterCallback<ClickEvent>(OnSelectButtonClicked);
     }
 
@@ -69,9 +69,9 @@ public class MainMenuEvents : MonoBehaviour
         SceneManager.LoadScene("Genius");
     }
 
-    private void OnShieldButtonClicked(ClickEvent evt)
+    private void OnDefenseButtonClicked(ClickEvent evt)
     {
-        SceneManager.LoadScene("Shield");
+        SceneManager.LoadScene("Defense");
     }
 
     private void OnSelectButtonClicked(ClickEvent evt)
@@ -85,7 +85,7 @@ public class MainMenuEvents : MonoBehaviour
         _exitButton.UnregisterCallback<ClickEvent>(OnExitButtonClicked);
         _labyrinthButton.UnregisterCallback<ClickEvent>(OnLabyrinthButtonClicked);
         _geniusButton.UnregisterCallback<ClickEvent>(OnGeniusButtonClicked);
-        _shieldButton.UnregisterCallback<ClickEvent>(OnShieldButtonClicked);
+        _defenseButton.UnregisterCallback<ClickEvent>(OnDefenseButtonClicked);
         _selectButton.UnregisterCallback<ClickEvent>(OnSelectButtonClicked);
         _returnButton.UnregisterCallback<ClickEvent>(OnReturnButtonClicked);
     }
