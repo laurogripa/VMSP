@@ -54,7 +54,7 @@ public class BackAction : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android && !onGameOver)
         {
-            if (Input.GetKey(KeyCode.Escape) && !SceneManager.GetActiveScene().name.Equals("Stage 0"))
+            if (Input.GetKey(KeyCode.Escape) && !SceneManager.GetActiveScene().name.Equals("Main Menu"))
             {
                 Time.timeScale = 0;
                 pauseScreen.SetActive(true);
@@ -62,14 +62,14 @@ public class BackAction : MonoBehaviour
                 onPause = true;
             }
         }
-        if (Input.GetKey(KeyCode.RightArrow) && !onGameOver && !SceneManager.GetActiveScene().name.Equals("Stage 0"))
+        if (Input.GetKey(KeyCode.RightArrow) && !onGameOver && !SceneManager.GetActiveScene().name.Equals("Main Menu"))
         {
             Time.timeScale = 0;
             pauseScreen.SetActive(true);
             ManageSoundImage();
             onPause = true;
         }
-        if(warningText != null)
+        if (warningText != null)
         {
             if (warningText.color.a > 0f)
             {
@@ -94,7 +94,7 @@ public class BackAction : MonoBehaviour
 
     public void SoundManager()
     {
-        if(PlayerPrefs.GetInt("Sound") == 1)
+        if (PlayerPrefs.GetInt("Sound") == 1)
         {
             PlayerPrefs.SetInt("Sound", 0);
             for (int i = 0; i < sounds.Length; i++)
@@ -115,9 +115,9 @@ public class BackAction : MonoBehaviour
 
     public void ShowLoginManager()
     {
-        if(loginScreenState)
+        if (loginScreenState)
         {
-            if(inputName.text.Equals(""))
+            if (inputName.text.Equals(""))
             {
                 warningText.color = new Color(1, 0, 0, 1);
             }
@@ -127,7 +127,7 @@ public class BackAction : MonoBehaviour
                 loginScreenState = false;
                 loginScreen.SetActive(false);
             }
-            else if(PlayerPrefs.GetString("PlayerRegistry").Equals(""))
+            else if (PlayerPrefs.GetString("PlayerRegistry").Equals(""))
             {
                 warningText.color = new Color(1, 0, 0, 0);
                 string newRegistry = "Novo Login\n" + "Data: " + System.DateTime.Now.ToString("dd/MM/yyyy") + " às " + System.DateTime.Now.ToString("HH:mm:ss") + "\n" + "Player: " + inputName.text + "\n";
@@ -145,7 +145,7 @@ public class BackAction : MonoBehaviour
         else
         {
             loginScreen.SetActive(true);
-            if(!PlayerPrefs.GetString("PlayerName").Equals(""))
+            if (!PlayerPrefs.GetString("PlayerName").Equals(""))
             {
                 GameObject.Find("PutName").GetComponent<InputField>().text = PlayerPrefs.GetString("PlayerName");
             }
@@ -173,12 +173,12 @@ public class BackAction : MonoBehaviour
     public void GoToMenu()
     {
         onPause = false;
-        SceneManager.LoadScene("Stage 0");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void ExportData()
     {
-        if(Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
         {
             string filePath = Path.Combine(Application.temporaryCachePath, "text.txt");
             File.WriteAllText(filePath, PlayerPrefs.GetString("PlayerRegistry"));

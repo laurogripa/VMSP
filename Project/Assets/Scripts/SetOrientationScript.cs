@@ -9,9 +9,9 @@ public class SetOrientationScript : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            switch(SceneManager.GetActiveScene().name)
+            switch (SceneManager.GetActiveScene().name)
             {
-                case "Stage 0":
+                case "Main Menu":
                     Screen.orientation = ScreenOrientation.Portrait;
                     break;
                 case "Stage 1":
@@ -22,7 +22,7 @@ public class SetOrientationScript : MonoBehaviour
                     break;
             }
         }
-        else if (Application.platform == RuntimePlatform.WindowsPlayer || 
+        else if (Application.platform == RuntimePlatform.WindowsPlayer ||
                  Application.platform == RuntimePlatform.WindowsEditor ||
                  Application.platform == RuntimePlatform.OSXPlayer ||
                  Application.platform == RuntimePlatform.OSXEditor ||

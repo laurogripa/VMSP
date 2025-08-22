@@ -14,7 +14,7 @@ public class FixCamera : MonoBehaviour
         {
             switch (SceneManager.GetActiveScene().name)
             {
-                case "Stage 0":
+                case "Main Menu":
                     Screen.orientation = ScreenOrientation.Portrait;
                     break;
                 case "Stage 1":

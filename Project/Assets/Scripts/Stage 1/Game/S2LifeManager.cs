@@ -15,13 +15,13 @@ public class S2LifeManager : MonoBehaviour
     private GameObject fade, gameElements, gameOverScreen, winScreen;
     [SerializeField]
     private GameObject[] gameComponents;
-    [SerializeField] 
+    [SerializeField]
     private RawImage fadeImage;
 
     void Start()
     {
         fadeImage = GameObject.Find("Fade").GetComponent<RawImage>();
-        lifes = 6;   
+        lifes = 6;
     }
 
     private void FixedUpdate()
@@ -41,7 +41,7 @@ public class S2LifeManager : MonoBehaviour
             else
             {
                 fadeIn = false;
-                if(changeToGO)
+                if (changeToGO)
                 {
                     BackAction.onGameOver = true;
                     Destroy(gameElements);
@@ -51,7 +51,7 @@ public class S2LifeManager : MonoBehaviour
                     }*/
                     gameOverScreen.SetActive(true);
                 }
-                else if(changeToWin)
+                else if (changeToWin)
                 {
                     BackAction.onGameOver = true;
                     Destroy(gameElements);
@@ -61,15 +61,15 @@ public class S2LifeManager : MonoBehaviour
                     }
                     winScreen.SetActive(true);
                 }
-                else if(restartGame)
+                else if (restartGame)
                 {
                     BackAction.onGameOver = false;
                     SceneManager.LoadScene("Stage 1");
                 }
-                else if(goToMenu)
+                else if (goToMenu)
                 {
                     BackAction.onGameOver = false;
-                    SceneManager.LoadScene("Stage 0");
+                    SceneManager.LoadScene("Main Menu");
                 }
                 fadeOut = true;
             }
@@ -99,9 +99,9 @@ public class S2LifeManager : MonoBehaviour
 
     public void ChangeLife(bool decrease)
     {
-        if(decrease && lifes > 0)
+        if (decrease && lifes > 0)
         {
-            lifes --;
+            lifes--;
         }
         else if (!decrease && lifes < 6)
         {
@@ -111,9 +111,9 @@ public class S2LifeManager : MonoBehaviour
     }
     private void UpdateLife()
     {
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
-            if(i < lifes)
+            if (i < lifes)
             {
                 lifesGO[i].SetActive(true);
             }

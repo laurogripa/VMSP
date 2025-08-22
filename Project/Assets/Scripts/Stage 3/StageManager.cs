@@ -12,7 +12,7 @@ public class StageManager : MonoBehaviour
     private GameObject gameOverScreen, winScreen, gameElements;
     [SerializeField]
     private GameObject[] gameScreens, lifeUIs;
-  
+
     public void SetGameOver()
     {
         BackAction.onGameOver = true;
@@ -35,7 +35,7 @@ public class StageManager : MonoBehaviour
     public void BackToMenu()
     {
         BackAction.onGameOver = false;
-        SceneManager.LoadScene("Stage 0");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void PlayIntro()
@@ -68,7 +68,7 @@ public class StageManager : MonoBehaviour
         eM.level = 0;
         eM.IncreaseLevel();
         gameScreens[0].SetActive(false);
-        if(GameObject.Find("Player") == null)
+        if (GameObject.Find("Player") == null)
         {
             GameObject.Find("Player(Clone)").GetComponent<PlayerBehavior>().waiting = false;
         }
@@ -94,7 +94,7 @@ public class StageManager : MonoBehaviour
         {
             winScreen.SetActive(false);
         }
-        else if(gameOverScreen.activeSelf)
+        else if (gameOverScreen.activeSelf)
         {
             gameOverScreen.SetActive(false);
         }
