@@ -188,14 +188,23 @@ public class PlayerBehavior : MonoBehaviour
         {
             TurnShieldOff();
         }
-        else if (collision.tag.Equals("Enemy") && !counterStarted && !hitAnimation)
+        else if (collision.tag.Equals("Enemy") && !counterStarted)
         {
-            gameOver = true;
-            gazeIndicator.SetActive(false);
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<PolygonCollider2D>().enabled = false;
-            GetComponentInChildren<ParticleSystem>().Play();
-            Invoke("restart", 2f);
+            // Enemies always explode on touch; player only dies if not invincible
+            var chaser = collision.GetComponent<ChaserEnemy>();
+            if (chaser != null)
+            {
+                chaser.Explode();
+            }
+            if (!hitAnimation)
+            {
+                gameOver = true;
+                gazeIndicator.SetActive(false);
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<PolygonCollider2D>().enabled = false;
+                GetComponentInChildren<ParticleSystem>().Play();
+                Invoke("restart", 2f);
+            }
         }
         else if (collision.tag.Equals("WinWall") && !hitAnimation)
         {
