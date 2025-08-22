@@ -12,10 +12,6 @@ public class BackAction : MonoBehaviour
     [SerializeField]
     private GameObject pauseScreen, loginScreen, newLogin;
     [SerializeField]
-    private AudioSource[] sounds;
-    [SerializeField]
-    private Button soundImage;
-    [SerializeField]
     private Sprite[] sImages;
     [SerializeField]
     private Text inputName;
@@ -59,21 +55,6 @@ public class BackAction : MonoBehaviour
             }
         }
         if (pauseScreen != null) pauseScreen.SetActive(false);
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                sounds[i].mute = false;
-            }
-        }
-        else
-        {
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                sounds[i].mute = true;
-            }
-        }
-        ManageSoundImage();
     }
 
     void Update()
@@ -114,42 +95,8 @@ public class BackAction : MonoBehaviour
         {
             Time.timeScale = 0;
             pauseScreen.SetActive(true);
-            ManageSoundImage();
             onPause = true;
         }
-    }
-
-    private void ManageSoundImage()
-    {
-        if (PlayerPrefs.GetInt("Sound") == 0)
-        {
-            soundImage.image.sprite = sImages[0];
-        }
-        else
-        {
-            soundImage.image.sprite = sImages[1];
-        }
-    }
-
-    public void SoundManager()
-    {
-        if (PlayerPrefs.GetInt("Sound") == 1)
-        {
-            PlayerPrefs.SetInt("Sound", 0);
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                sounds[i].mute = false;
-            }
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Sound", 1);
-            for (int i = 0; i < sounds.Length; i++)
-            {
-                sounds[i].mute = true;
-            }
-        }
-        ManageSoundImage();
     }
 
     public void ShowLoginManager()

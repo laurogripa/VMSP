@@ -8,17 +8,16 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private GameObject[] substages;
     [SerializeField]
-    private GameObject[] lifesUI;
+    private GameObject[] livesUI;
     [SerializeField]
     public Text counter;
     [SerializeField]
     public GameObject counterObject;
     List<GameObject> activeGameObjects;
     public int level;
-    public int lifes;
+    public int lives;
     public bool onShield;
 
-    // Defense survival HUD/state
     private Text survivalCountdownText;
     private Text killsText;
     private float survivalRemaining = 60f;
@@ -27,16 +26,16 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        lifesUI = new GameObject[5];
-        for (int i = 0; i < lifesUI.Length; i++)
+        livesUI = new GameObject[3];
+        for (int i = 0; i < livesUI.Length; i++)
         {
-            lifesUI[i] = GameObject.Find("Life_" + i);
+            livesUI[i] = GameObject.Find("Life_" + i);
         }
         counter = Camera.main.gameObject.GetComponent<StageManager>().counterText;
         counterObject = Camera.main.gameObject.GetComponent<StageManager>().counterObject;
         activeGameObjects = new List<GameObject>();
         GameObject.Find("Player").GetComponent<PlayerBehavior>().waiting = true;
-        lifes = 5;
+        lives = 3;
         level = -1;
 
         EnsureSurvivalHud();
@@ -65,7 +64,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         level += 1;
-        if (lifes < 5)
+        if (lives < livesUI.Length)
         {
             ChangeLife(1);
         }
@@ -80,7 +79,6 @@ public class EnemyManager : MonoBehaviour
             SubStage.transform.SetParent(GameObject.Find("GameElements").transform);
         }
 
-        // Defense: create a hidden template and remove fixed enemies
         var spawner = GameObject.FindObjectOfType<DefenseEnemySpawner>();
         var fixedEnemies = SubStage.GetComponentsInChildren<EnemyBehavior>(true);
         GameObject templateClone = null;
@@ -189,74 +187,79 @@ public class EnemyManager : MonoBehaviour
 
     public void ChangeLife(int number)
     {
+        Debug.Log("ChangeLife: " + number);
+        Debug.Log("Lives: " + lives);
+        Debug.Log("LivesUI: " + livesUI.Length);
+        Debug.Log("Level: " + level);
+
         if (level > 0)
         {
-            lifes += number;
+            lives += number;
         }
-        switch (lifes)
+        switch (lives)
         {
             case 0:
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < livesUI.Length; i++)
                 {
-                    lifesUI[i].SetActive(false);
+                    livesUI[i].SetActive(false);
                 }
                 break;
             case 1:
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < livesUI.Length; i++)
                 {
                     if (i > 0)
                     {
-                        lifesUI[i].SetActive(false);
+                        livesUI[i].SetActive(false);
                     }
                     else
                     {
-                        lifesUI[i].SetActive(true);
+                        livesUI[i].SetActive(true);
                     }
                 }
                 break;
             case 2:
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < livesUI.Length; i++)
                 {
                     if (i > 1)
                     {
-                        lifesUI[i].SetActive(false);
+                        livesUI[i].SetActive(false);
                     }
                     else
                     {
-                        lifesUI[i].SetActive(true);
+                        livesUI[i].SetActive(true);
                     }
                 }
                 break;
             case 3:
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < livesUI.Length; i++)
                 {
                     if (i > 2)
                     {
-                        lifesUI[i].SetActive(false);
+                        livesUI[i].SetActive(false);
                     }
                     else
                     {
-                        lifesUI[i].SetActive(true);
+                        livesUI[i].SetActive(true);
                     }
                 }
                 break;
             case 4:
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < livesUI.Length; i++)
                 {
                     if (i > 3)
                     {
-                        lifesUI[i].SetActive(false);
+                        livesUI[i].SetActive(false);
                     }
                     else
                     {
-                        lifesUI[i].SetActive(true);
+                        livesUI[i].SetActive(true);
                     }
                 }
                 break;
             case 5:
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < livesUI.Length; i++)
                 {
-                    lifesUI[i].SetActive(true);
+                    livesUI[i].SetActive(true);
                 }
                 break;
         }

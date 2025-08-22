@@ -226,7 +226,7 @@ public class PlayerBehavior : MonoBehaviour
     private void restart()
     {
         enemyManager.GetComponent<EnemyManager>().ChangeLife(-1);
-        if (enemyManager.GetComponent<EnemyManager>().lifes > 0)
+        if (enemyManager.GetComponent<EnemyManager>().lives > 0)
         {
             GameObject P = Instantiate(Resources.Load("Defense/Player") as GameObject);
             if (GameObject.Find("GameElements") == null)
