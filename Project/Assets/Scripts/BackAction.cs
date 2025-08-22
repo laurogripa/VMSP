@@ -33,6 +33,32 @@ public class BackAction : MonoBehaviour
     {
         loginScreenState = false;
         Time.timeScale = 1;
+
+        if (pauseScreen == null)
+        {
+            var found = GameObject.Find("PauseScreen");
+            if (found != null)
+            {
+                pauseScreen = found;
+            }
+            else
+            {
+                var prefab = Resources.Load<GameObject>("PauseScreen");
+                if (prefab != null)
+                {
+                    var canvas = GameObject.FindObjectOfType<Canvas>();
+                    if (canvas != null)
+                    {
+                        pauseScreen = Instantiate(prefab, canvas.transform);
+                    }
+                    else
+                    {
+                        pauseScreen = Instantiate(prefab);
+                    }
+                }
+            }
+        }
+        if (pauseScreen != null) pauseScreen.SetActive(false);
         if (PlayerPrefs.GetInt("Sound") == 0)
         {
             for (int i = 0; i < sounds.Length; i++)
@@ -52,22 +78,19 @@ public class BackAction : MonoBehaviour
 
     void Update()
     {
-        if (Application.platform == RuntimePlatform.Android && !onGameOver)
+        if (!onGameOver && !SceneManager.GetActiveScene().name.Equals("Main Menu"))
         {
-            if (Input.GetKey(KeyCode.Escape) && !SceneManager.GetActiveScene().name.Equals("Main Menu"))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Time.timeScale = 0;
-                pauseScreen.SetActive(true);
-                ManageSoundImage();
-                onPause = true;
+                if (!onPause)
+                {
+                    PauseGame();
+                }
+                else
+                {
+                    BackToGame();
+                }
             }
-        }
-        if (Input.GetKey(KeyCode.RightArrow) && !onGameOver && !SceneManager.GetActiveScene().name.Equals("Main Menu"))
-        {
-            Time.timeScale = 0;
-            pauseScreen.SetActive(true);
-            ManageSoundImage();
-            onPause = true;
         }
         if (warningText != null)
         {
@@ -77,6 +100,22 @@ public class BackAction : MonoBehaviour
                 newAlpha -= 0.001f;
                 warningText.color = new Color(1, 0, 0, newAlpha);
             }
+        }
+    }
+
+    private void PauseGame()
+    {
+        if (pauseScreen == null)
+        {
+            var found = GameObject.Find("PauseScreen");
+            if (found != null) pauseScreen = found;
+        }
+        if (pauseScreen != null)
+        {
+            Time.timeScale = 0;
+            pauseScreen.SetActive(true);
+            ManageSoundImage();
+            onPause = true;
         }
     }
 
