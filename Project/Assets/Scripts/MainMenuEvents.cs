@@ -61,22 +61,22 @@ public class MainMenuEvents : MonoBehaviour
 
     private void OnLabyrinthButtonClicked(ClickEvent evt)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Labyrinth");
     }
 
     private void OnGeniusButtonClicked(ClickEvent evt)
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Genius");
     }
 
     private void OnShieldButtonClicked(ClickEvent evt)
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Shield");
     }
 
     private void OnSelectButtonClicked(ClickEvent evt)
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Select");
     }
 
     private void OnDisable()

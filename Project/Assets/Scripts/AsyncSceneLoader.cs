@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class AsyncSceneLoader : MonoBehaviour
 {
-	[SerializeField] private string sceneName = "Stage 2";
+	[SerializeField] private string sceneName = "Genius";
 	[SerializeField] private bool autoActivateWhenReady = true;
 	[SerializeField] private float minShowSeconds = 1f;
 	[SerializeField] private bool startLoadingOnAwake = true;

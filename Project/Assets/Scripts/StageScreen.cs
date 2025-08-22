@@ -21,7 +21,7 @@ public class StageScreen : MonoBehaviour
     public Slider slider;
 
     void Update()
-    { 
+    {
         if (loadScene)
         {
             loadingText.color = new Color(loadingText.color.r, loadingText.color.g, loadingText.color.b, Mathf.PingPong(Time.time, 1));
@@ -32,7 +32,7 @@ public class StageScreen : MonoBehaviour
     {
         if (scene == 2)
         {
-            SceneManager.LoadScene("LoadingStage2");
+            SceneManager.LoadScene("Genius");
         }
         else
         {
@@ -127,11 +127,11 @@ public class StageScreen : MonoBehaviour
     }
 
     IEnumerator LoadNewScene()
-    { 
+    {
         yield return new WaitForSeconds(3);
 
         AsyncOperation async = SceneManager.LoadSceneAsync(scene);
-        
+
         while (!async.isDone)
         {
             loadingText.text = "Carregando...\n" + (async.progress * 100) + "%";
