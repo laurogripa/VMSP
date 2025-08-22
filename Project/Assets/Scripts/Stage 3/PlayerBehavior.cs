@@ -9,6 +9,7 @@ public class PlayerBehavior : MonoBehaviour
 {
     public GameObject player;
     private float speed, spentTime, hitAnimationTime, timeToBlink;
+    private float invincibilityDuration = 5f;
     private bool gameOver, counterStarted;
     private int timeTo;
     public bool waiting, hitAnimation, blink;
@@ -94,7 +95,7 @@ public class PlayerBehavior : MonoBehaviour
                     timeToBlink = 0;
                 }
 
-                if (hitAnimationTime > 5)
+                if (hitAnimationTime > invincibilityDuration)
                 {
                     hitAnimation = false;
                     gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
@@ -227,6 +228,12 @@ public class PlayerBehavior : MonoBehaviour
             {
                 P.transform.SetParent(GameObject.Find("GameElements").transform);
             }
+            P.transform.localPosition = Vector3.zero;
+            var pb = P.GetComponent<PlayerBehavior>();
+            if (pb != null)
+            {
+                pb.ActivateInvincibility(5f);
+            }
             Destroy(gameObject);
         }
         else
@@ -260,5 +267,17 @@ public class PlayerBehavior : MonoBehaviour
         enemyManager.GetComponent<EnemyManager>().onShield = false;
         hitAnimation = true;
         gameObject.transform.localScale = originalSize;
+    }
+
+    public void ActivateInvincibility(float durationSeconds)
+    {
+        invincibilityDuration = durationSeconds;
+        hitAnimation = true;
+        hitAnimationTime = 0f;
+        timeToBlink = 0f;
+        if (shieldUI != null)
+        {
+            shieldUI.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        }
     }
 }
