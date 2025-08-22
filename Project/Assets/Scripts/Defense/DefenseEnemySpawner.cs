@@ -29,6 +29,7 @@ public class DefenseEnemySpawner : MonoBehaviour
 		var wait = new WaitForSeconds(spawnIntervalSeconds);
 		while (true)
 		{
+			if (BackAction.onGameOver) yield break;
 			yield return wait;
 			if (player == null)
 			{

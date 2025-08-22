@@ -194,7 +194,7 @@ public class PlayerBehavior : MonoBehaviour
             var chaser = collision.GetComponent<ChaserEnemy>();
             if (chaser != null)
             {
-                chaser.Explode();
+                chaser.Explode(false);
             }
             if (!hitAnimation)
             {
@@ -247,7 +247,10 @@ public class PlayerBehavior : MonoBehaviour
         }
         else
         {
-            Camera.current.gameObject.GetComponent<StageManager>().SetGameOver();
+            if (Camera.main != null)
+            {
+                Camera.main.gameObject.GetComponent<StageManager>().SetGameOver();
+            }
             Destroy(gameObject.transform.parent.gameObject);
         }
     }

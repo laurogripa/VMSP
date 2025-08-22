@@ -60,7 +60,7 @@ public class ChaserEnemy : MonoBehaviour
 		}
 	}
 
-	public void Explode()
+	public void Explode(bool countAsKill = true)
 	{
 		if (hasExploded) return;
 		hasExploded = true;
@@ -77,6 +77,14 @@ public class ChaserEnemy : MonoBehaviour
 				var main = psInstance.main;
 				float ttl = main.duration + main.startLifetimeMultiplier + 0.5f;
 				Object.Destroy(psInstance.gameObject, ttl);
+			}
+		}
+		if (countAsKill)
+		{
+			var manager = GameObject.FindObjectOfType<EnemyManager>();
+			if (manager != null)
+			{
+				manager.RegisterKill();
 			}
 		}
 		Object.Destroy(gameObject);

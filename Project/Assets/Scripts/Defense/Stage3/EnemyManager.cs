@@ -18,6 +18,13 @@ public class EnemyManager : MonoBehaviour
     public int lifes;
     public bool onShield;
 
+    // Defense survival HUD/state
+    private Text survivalCountdownText;
+    private Text killsText;
+    private float survivalRemaining = 60f;
+    private bool winTriggered;
+    private int kills;
+
     void Start()
     {
         lifesUI = new GameObject[5];
@@ -31,6 +38,23 @@ public class EnemyManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerBehavior>().waiting = true;
         lifes = 5;
         level = -1;
+
+        EnsureSurvivalHud();
+    }
+
+    void Update()
+    {
+        if (!BackAction.onPause && !BackAction.onGameOver && !winTriggered)
+        {
+            survivalRemaining -= Time.deltaTime;
+            if (survivalRemaining < 0) survivalRemaining = 0;
+            UpdateHud();
+            if (survivalRemaining <= 0f)
+            {
+                winTriggered = true;
+                Camera.main.gameObject.GetComponent<StageManager>().SetWin();
+            }
+        }
     }
 
     public void IncreaseLevel()
@@ -83,6 +107,83 @@ public class EnemyManager : MonoBehaviour
         if (spawner != null && templateClone != null)
         {
             spawner.SetTemplate(templateClone);
+        }
+    }
+
+    public void RegisterKill()
+    {
+        kills += 1;
+        UpdateHud();
+    }
+
+    private void EnsureSurvivalHud()
+    {
+        var canvas = GameObject.Find("Canvas");
+        if (canvas == null)
+        {
+            var canvasGo = new GameObject("Canvas");
+            canvas = canvasGo;
+            var c = canvasGo.AddComponent<Canvas>();
+            c.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvasGo.AddComponent<CanvasScaler>();
+            canvasGo.AddComponent<GraphicRaycaster>();
+        }
+
+        var countdownGo = GameObject.Find("SurvivalCountdown");
+        if (countdownGo == null)
+        {
+            countdownGo = new GameObject("SurvivalCountdown");
+            countdownGo.transform.SetParent(canvas.transform);
+            var rt = countdownGo.AddComponent<RectTransform>();
+            rt.anchorMin = new Vector2(1f, 0f);
+            rt.anchorMax = new Vector2(1f, 0f);
+            rt.pivot = new Vector2(1f, 0f);
+            rt.anchoredPosition = new Vector2(-20f, 20f);
+            survivalCountdownText = countdownGo.AddComponent<Text>();
+            survivalCountdownText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            survivalCountdownText.alignment = TextAnchor.LowerRight;
+            survivalCountdownText.fontSize = 24;
+            survivalCountdownText.color = Color.white;
+        }
+        else
+        {
+            survivalCountdownText = countdownGo.GetComponent<Text>();
+        }
+
+        var killsGo = GameObject.Find("KillsText");
+        if (killsGo == null)
+        {
+            killsGo = new GameObject("KillsText");
+            killsGo.transform.SetParent(canvas.transform);
+            var rt2 = killsGo.AddComponent<RectTransform>();
+            rt2.anchorMin = new Vector2(1f, 0f);
+            rt2.anchorMax = new Vector2(1f, 0f);
+            rt2.pivot = new Vector2(1f, 0f);
+            rt2.anchoredPosition = new Vector2(-20f, 50f);
+            killsText = killsGo.AddComponent<Text>();
+            killsText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            killsText.alignment = TextAnchor.LowerRight;
+            killsText.fontSize = 20;
+            killsText.color = Color.white;
+        }
+        else
+        {
+            killsText = killsGo.GetComponent<Text>();
+        }
+
+        UpdateHud();
+    }
+
+    private void UpdateHud()
+    {
+        if (survivalCountdownText != null)
+        {
+            int seconds = Mathf.CeilToInt(survivalRemaining);
+            survivalCountdownText.text = seconds.ToString() + "s";
+        }
+        if (killsText != null)
+        {
+            killsText.text = "Kills: " + kills.ToString();
         }
     }
 
