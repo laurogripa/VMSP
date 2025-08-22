@@ -23,7 +23,7 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/Main Menu.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/Stage 1.unity
+    m_path: Assets/Scenes/Labyrinth.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Stage 2.unity
   - m_enabled: 1

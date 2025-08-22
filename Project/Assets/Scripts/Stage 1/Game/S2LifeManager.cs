@@ -64,7 +64,7 @@ public class S2LifeManager : MonoBehaviour
                 else if (restartGame)
                 {
                     BackAction.onGameOver = false;
-                    SceneManager.LoadScene("Stage 1");
+                    SceneManager.LoadScene("Labyrinth");
                 }
                 else if (goToMenu)
                 {
