@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Tobii.Gaming;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -46,7 +45,6 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (!BackAction.onPause)
         {
-            PlayerMovement();
             if (counterStarted)
             {
                 spentTime += Time.deltaTime;
@@ -104,56 +102,6 @@ public class PlayerBehavior : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void PlayerMovement()
-    {
-        if (!gameOver && !waiting)
-        {
-            Vector2 inputPos;
-
-            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-            {
-                if (Input.touchCount > 0)
-                {
-                    inputPos = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
-                    MovePlayer(inputPos);
-                }
-            }
-            else
-            {
-                GazePoint gazePoint = TobiiAPI.GetGazePoint();
-                if (gazePoint.IsValid)
-                {
-                    inputPos = Camera.main.ScreenToWorldPoint(new Vector3(gazePoint.Screen.x, gazePoint.Screen.y, 10f));
-
-                    if (!gameOver)
-                    {
-                        gazeIndicator.transform.position = inputPos;
-                    }
-
-                    gazeIndicator.transform.position = inputPos;
-                    MovePlayer(inputPos);
-                }
-            }
-        }
-    }
-
-    private void MovePlayer(Vector2 inputPos)
-    {
-        Vector2 distance = new Vector2(transform.position.x - inputPos.x, transform.position.y - inputPos.y);
-        distance.x = Mathf.Abs(distance.x);
-        distance.y = Mathf.Abs(distance.y);
-
-        if (distance.x > 0.1f || distance.y > 0.1f)
-        {
-            Vector3 target = new Vector3(inputPos.x, inputPos.y, transform.position.z);
-            Vector3 normalizedDirection = (target - transform.position).normalized;
-            transform.position += normalizedDirection * speed * Time.deltaTime;
-        }
-        float AngleRad = Mathf.Atan2(transform.position.y - inputPos.y, transform.position.x - inputPos.x);
-        float AngleDeg = Mathf.Rad2Deg * AngleRad;
-        transform.rotation = Quaternion.AngleAxis(AngleDeg, Vector3.forward);
     }
 
     private Sprite CreateCircleSprite()
