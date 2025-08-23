@@ -8,21 +8,38 @@ public class DefenseEnemySpawner : MonoBehaviour
 	[SerializeField] private float spawnIntervalSeconds = 1.25f;
 	[SerializeField] private int spawnPerWave = 2;
 	[SerializeField] private int maxSimultaneousEnemies = 30;
-	[SerializeField] private float chaserSpeed = 0.4f;
+	[SerializeField] private float baseChaserSpeed = 0.42f; // Reduced by 30%
+	[SerializeField] private float speedIncreasePerKill = 0.02f; // 2% per kill
 
 	private Transform player;
 	private GameObject sceneTemplate;
 	private GameObject runtimeTemplate;
+	private int enemiesKilled = 0;
+	private float currentChaserSpeed;
+	
+	public static DefenseEnemySpawner Instance { get; private set; }
 
 	public void SetTemplate(GameObject template)
 	{
 		sceneTemplate = template;
 	}
 
+	void Awake()
+	{
+		Instance = this;
+	}
+
 	void Start()
 	{
 		player = GameObject.Find("Player")?.transform ?? GameObject.Find("Player(Clone)")?.transform;
+		currentChaserSpeed = baseChaserSpeed;
 		StartCoroutine(SpawnLoop());
+	}
+
+	public void OnEnemyKilled()
+	{
+		enemiesKilled++;
+		currentChaserSpeed = baseChaserSpeed * (1f + (enemiesKilled * speedIncreasePerKill));
 	}
 
 	private IEnumerator SpawnLoop()
@@ -57,7 +74,6 @@ public class DefenseEnemySpawner : MonoBehaviour
 		if (sceneTemplate != null) return sceneTemplate;
 		if (spawnPrefab != null) return spawnPrefab;
 		
-		// Try to find existing enemy in scene
 		var anyEnemy = FindObjectOfType<EnemyBehavior>();
 		if (anyEnemy != null)
 		{
@@ -65,7 +81,6 @@ public class DefenseEnemySpawner : MonoBehaviour
 			return sceneTemplate;
 		}
 		
-		// Create runtime template if none exists (fixes build issue)
 		if (runtimeTemplate == null)
 		{
 			runtimeTemplate = CreateRuntimeEnemyTemplate();
@@ -78,10 +93,7 @@ public class DefenseEnemySpawner : MonoBehaviour
 		var template = new GameObject("RuntimeEnemyTemplate");
 		template.SetActive(false);
 		
-		// Add sprite renderer with player's sprite
 		var sr = template.AddComponent<SpriteRenderer>();
-		
-		// Try to get player's sprite first
 		var playerSR = player?.GetComponent<SpriteRenderer>();
 		if (playerSR != null && playerSR.sprite != null)
 		{
@@ -89,19 +101,14 @@ public class DefenseEnemySpawner : MonoBehaviour
 		}
 		else
 		{
-			// Fallback: try to load the plane sprite from Resources
 			var planeSprite = Resources.Load<Sprite>("Defense/plane");
 			sr.sprite = planeSprite;
 		}
 		
 		sr.color = Color.red;
-		
-		// Add collider - match player's size
 		var col = template.AddComponent<CircleCollider2D>();
 		col.isTrigger = true;
-		col.radius = 0.4f; // Adjusted for plane sprite
-		
-		// Match player's scale exactly
+		col.radius = 0.6f; // Increased tolerance
 		template.transform.localScale = Vector3.one * 0.5f;
 		
 		return template;
@@ -114,10 +121,14 @@ public class DefenseEnemySpawner : MonoBehaviour
 		if (eb != null) eb.enabled = false;
 		var chaser = enemy.GetComponent<ChaserEnemy>();
 		if (chaser == null) chaser = enemy.AddComponent<ChaserEnemy>();
-		chaser.moveSpeed = chaserSpeed;
+		chaser.moveSpeed = currentChaserSpeed;
 		enemy.tag = "Enemy";
-		var col = enemy.GetComponent<Collider2D>();
-		if (col != null) col.isTrigger = true;
+		var col = enemy.GetComponent<CircleCollider2D>();
+		if (col != null) 
+		{
+			col.isTrigger = true;
+			col.radius = 0.6f; // Increased tolerance
+		}
 		var sr = enemy.GetComponent<SpriteRenderer>();
 		if (sr != null)
 		{
