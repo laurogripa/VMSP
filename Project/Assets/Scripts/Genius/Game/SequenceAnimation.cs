@@ -7,7 +7,6 @@ public class SequenceAnimation : MonoBehaviour
 {
     [SerializeField] private Sprite[] animationTo0, animationTo1, animationTo2, animationTo3;
     [SerializeField] private int lighterID;
-    public AudioSource audios;
     private float disabledTime;
 
     private void FixedUpdate()
@@ -63,12 +62,10 @@ public class SequenceAnimation : MonoBehaviour
             {
                 if (currentFrame == lighterID && disabledTime <= 0f)
                 {
-                    audios.Play();
                     disabledTime = 0.5f;
                 }
                 else if (lighterID <= limitID && disabledTime <= 0f && currentFrame == limitID + 1)
                 {
-                    audios.Play();
                     disabledTime = 0.5f;
                 }
 
@@ -86,12 +83,10 @@ public class SequenceAnimation : MonoBehaviour
             {
                 if (currentFrame == lighterID && disabledTime <= 0f)
                 {
-                    audios.Play();
                     disabledTime = 0.5f;
                 }
                 else if (lighterID >= limitID && disabledTime <= 0f && currentFrame == limitID - 1)
                 {
-                    audios.Play();
                     disabledTime = 0.5f;
                 }
                 gameObject.GetComponent<SpriteRenderer>().sprite = destinationSprite[currentFrame];

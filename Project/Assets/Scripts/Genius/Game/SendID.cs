@@ -11,7 +11,7 @@ public class SendID : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if(manager.isClickable)
+        if (manager.isClickable)
         {
             if (over)
             {
@@ -28,11 +28,11 @@ public class SendID : MonoBehaviour
     {
         if (manager.isClickable)
         {
-            if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+            if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = lighter;
             }
-            else if(over)
+            else if (over)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = lighter;
             }
@@ -60,7 +60,6 @@ public class SendID : MonoBehaviour
         manager.isClickable = false;
         yield return new WaitForSeconds(0.5F);
         manager.isClickable = true;
-        gameObject.GetComponent<SequenceAnimation>().audios.Play();
         ClickAction();
     }
 }
