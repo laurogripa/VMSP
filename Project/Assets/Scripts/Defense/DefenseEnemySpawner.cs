@@ -12,6 +12,7 @@ public class DefenseEnemySpawner : MonoBehaviour
 
 	private Transform player;
 	private GameObject sceneTemplate;
+	private GameObject runtimeTemplate;
 
 	public void SetTemplate(GameObject template)
 	{
@@ -55,12 +56,55 @@ public class DefenseEnemySpawner : MonoBehaviour
 	{
 		if (sceneTemplate != null) return sceneTemplate;
 		if (spawnPrefab != null) return spawnPrefab;
+		
+		// Try to find existing enemy in scene
 		var anyEnemy = FindObjectOfType<EnemyBehavior>();
 		if (anyEnemy != null)
 		{
 			sceneTemplate = anyEnemy.gameObject;
+			return sceneTemplate;
 		}
-		return sceneTemplate;
+		
+		// Create runtime template if none exists (fixes build issue)
+		if (runtimeTemplate == null)
+		{
+			runtimeTemplate = CreateRuntimeEnemyTemplate();
+		}
+		return runtimeTemplate;
+	}
+
+	private GameObject CreateRuntimeEnemyTemplate()
+	{
+		var template = new GameObject("RuntimeEnemyTemplate");
+		template.SetActive(false);
+		
+		// Add sprite renderer with player's sprite
+		var sr = template.AddComponent<SpriteRenderer>();
+		
+		// Try to get player's sprite first
+		var playerSR = player?.GetComponent<SpriteRenderer>();
+		if (playerSR != null && playerSR.sprite != null)
+		{
+			sr.sprite = playerSR.sprite;
+		}
+		else
+		{
+			// Fallback: try to load the plane sprite from Resources
+			var planeSprite = Resources.Load<Sprite>("Defense/plane");
+			sr.sprite = planeSprite;
+		}
+		
+		sr.color = Color.red;
+		
+		// Add collider - match player's size
+		var col = template.AddComponent<CircleCollider2D>();
+		col.isTrigger = true;
+		col.radius = 0.4f; // Adjusted for plane sprite
+		
+		// Match player's scale exactly
+		template.transform.localScale = Vector3.one * 0.5f;
+		
+		return template;
 	}
 
 	private void PrepareSpawnedEnemy(GameObject enemy)

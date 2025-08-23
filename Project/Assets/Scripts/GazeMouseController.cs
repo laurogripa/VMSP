@@ -11,9 +11,9 @@ public class GazeMouseController : MonoBehaviour
 	[SerializeField] private bool clickOnSpacebar = true;
 	[SerializeField] private float smoothing = 0f;
 	[SerializeField] private KeyCode toggleGazeKey = KeyCode.E;
-	[SerializeField] private bool useViewportMapping = true; // Use normalized coords from Tobii
-	[SerializeField] private bool mapUsingWindowClient = true; // Map to Unity window client area for DPI/multi-monitor correctness
-	[SerializeField] private bool enforceTargetAspect = true; // Fit a target aspect within the window client (handles letterboxing/pillarboxing)
+	[SerializeField] private bool useViewportMapping = true;
+	[SerializeField] private bool mapUsingWindowClient = true;
+	[SerializeField] private bool enforceTargetAspect = true;
 	[SerializeField] private int targetAspectWidth = 16;
 	[SerializeField] private int targetAspectHeight = 9;
 
@@ -114,8 +114,13 @@ public class GazeMouseController : MonoBehaviour
 							}
 						}
 
-						int cx = offsetX + Mathf.RoundToInt(vx * (contentW - 1));
-						int cy = offsetY + Mathf.RoundToInt((1f - vy) * (contentH - 1));
+						// Fixed: Perfect 1:1 mapping with Y-axis inversion for screen coordinates
+						int cx = offsetX + Mathf.RoundToInt(vx * contentW);
+						int cy = offsetY + Mathf.RoundToInt((1f - vy) * contentH);
+						
+						cx = Mathf.Clamp(cx, offsetX, offsetX + contentW - 1);
+						cy = Mathf.Clamp(cy, offsetY, offsetY + contentH - 1);
+						
 						finalX = origin.x + cx;
 						finalY = origin.y + cy;
 						SetCursorPos(finalX, finalY);
@@ -133,8 +138,10 @@ public class GazeMouseController : MonoBehaviour
 
 				float vx = Mathf.Clamp01(smoothedPos.x);
 				float vy = Mathf.Clamp01(smoothedPos.y);
-				finalX = vLeft + Mathf.RoundToInt(vx * (vWidth - 1));
-				finalY = vTop + Mathf.RoundToInt((1f - vy) * (vHeight - 1));
+				
+				// Fixed: Y-axis inversion for screen coordinates
+				finalX = vLeft + Mathf.Clamp(Mathf.RoundToInt(vx * vWidth), 0, vWidth - 1);
+				finalY = vTop + Mathf.Clamp(Mathf.RoundToInt((1f - vy) * vHeight), 0, vHeight - 1);
 				SetCursorPos(finalX, finalY);
 			}
 #endif
