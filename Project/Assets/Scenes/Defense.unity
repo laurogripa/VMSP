@@ -3279,6 +3279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 797998040970427214, guid: 07411dade5791da4ca022204871b12fd,
         type: 3}
+      propertyPath: substages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 797998040970427214, guid: 07411dade5791da4ca022204871b12fd,
+        type: 3}
       propertyPath: 'lifesUI.Array.data[0]'
       value: 
       objectReference: {fileID: 1515862297}
@@ -3312,6 +3317,24 @@ PrefabInstance:
       propertyPath: survivalCountdownText
       value: 
       objectReference: {fileID: 2123735879}
+    - target: {fileID: 797998040970427214, guid: 07411dade5791da4ca022204871b12fd,
+        type: 3}
+      propertyPath: 'substages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1634415989972448570, guid: 2ab272e127b4b6341b856f3220378870,
+        type: 3}
+    - target: {fileID: 797998040970427214, guid: 07411dade5791da4ca022204871b12fd,
+        type: 3}
+      propertyPath: 'substages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4544746958198877582, guid: 63946dbc6aacca94cad4d6126b1e5711,
+        type: 3}
+    - target: {fileID: 797998040970427214, guid: 07411dade5791da4ca022204871b12fd,
+        type: 3}
+      propertyPath: 'substages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3300162891204422885, guid: 8f0eae9df2a01e84bacef3b0eadb25b6,
+        type: 3}
     - target: {fileID: 797998041136347777, guid: 07411dade5791da4ca022204871b12fd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3477,6 +3500,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 797998042658957769, guid: 07411dade5791da4ca022204871b12fd,
+        type: 3}
+      propertyPath: shieldUI
+      value: 
+      objectReference: {fileID: 1546944051}
     - target: {fileID: 797998042890352825, guid: 07411dade5791da4ca022204871b12fd,
         type: 3}
       propertyPath: m_Name

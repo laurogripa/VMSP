@@ -63,13 +63,14 @@ public class EnemyManager : MonoBehaviour
         {
             survivalRemaining -= Time.deltaTime;
             if (survivalRemaining < 0) survivalRemaining = 0;
-            UpdateHud();
             if (survivalRemaining <= 0f)
             {
                 winTriggered = true;
                 Camera.main.gameObject.GetComponent<StageManager>().SetWin();
             }
         }
+        // Keep HUD fresh even when paused/game over
+        UpdateHud();
     }
 
     public void IncreaseLevel()
@@ -154,5 +155,6 @@ public class EnemyManager : MonoBehaviour
         {
             livesUI[i].SetActive(i < lives);
         }
+        UpdateHud();
     }
 }
