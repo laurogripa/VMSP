@@ -1123,37 +1123,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260571996}
   m_CullTransparentMesh: 1
---- !u!1 &286131580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 286131582}
-  m_Layer: 0
-  m_Name: Audio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &286131582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286131580}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &309593642
 GameObject:
   m_ObjectHideFlags: 0
@@ -5155,8 +5124,6 @@ MonoBehaviour:
   pauseScreen: {fileID: 0}
   loginScreen: {fileID: 1257554697}
   newLogin: {fileID: 1847498498}
-  sounds: []
-  soundImage: {fileID: 444060601}
   sImages:
   - {fileID: 21300000, guid: 25a40d3f9f175cc4f9d46eee739b9048, type: 3}
   - {fileID: 21300000, guid: f9543e5d35478ca4984381d2d323bced, type: 3}
@@ -5985,7 +5952,6 @@ SceneRoots:
   - {fileID: 1927266453}
   - {fileID: 1884699189643134890}
   - {fileID: 2285230808537248026}
-  - {fileID: 286131582}
   - {fileID: 148451695}
   - {fileID: 996712487}
   - {fileID: 1383531074}
