@@ -202,7 +202,17 @@ public class PlayerBehavior : MonoBehaviour
                 GetComponent<SpriteRenderer>().enabled = false;
                 GetComponent<PolygonCollider2D>().enabled = false;
                 GetComponentInChildren<ParticleSystem>().Play();
-                Invoke("restart", 2f);
+
+                var em = enemyManager.GetComponent<EnemyManager>();
+                em.ChangeLife(-1);
+                if (em.lives > 0)
+                {
+                    Invoke("restart", 2f);
+                }
+                else
+                {
+                    Invoke("HandleGameOver", 2f);
+                }
             }
         }
         else if (collision.tag.Equals("WinWall") && !hitAnimation)
@@ -224,34 +234,31 @@ public class PlayerBehavior : MonoBehaviour
 
     private void restart()
     {
-        enemyManager.GetComponent<EnemyManager>().ChangeLife(-1);
-        if (enemyManager.GetComponent<EnemyManager>().lives > 0)
+        GameObject P = Instantiate(Resources.Load("Defense/Player") as GameObject);
+        if (GameObject.Find("GameElements") == null)
         {
-            GameObject P = Instantiate(Resources.Load("Defense/Player") as GameObject);
-            if (GameObject.Find("GameElements") == null)
-            {
-                P.transform.SetParent(GameObject.Find("GameElements(Clone)").transform);
-            }
-            else
-            {
-                P.transform.SetParent(GameObject.Find("GameElements").transform);
-            }
-            P.transform.localPosition = Vector3.zero;
-            var pb = P.GetComponent<PlayerBehavior>();
-            if (pb != null)
-            {
-                pb.ActivateInvincibility(5f);
-            }
-            Destroy(gameObject);
+            P.transform.SetParent(GameObject.Find("GameElements(Clone)").transform);
         }
         else
         {
-            if (Camera.main != null)
-            {
-                Camera.main.gameObject.GetComponent<StageManager>().SetGameOver();
-            }
-            Destroy(gameObject.transform.parent.gameObject);
+            P.transform.SetParent(GameObject.Find("GameElements").transform);
         }
+        P.transform.localPosition = Vector3.zero;
+        var pb = P.GetComponent<PlayerBehavior>();
+        if (pb != null)
+        {
+            pb.ActivateInvincibility(5f);
+        }
+        Destroy(gameObject);
+    }
+
+    private void HandleGameOver()
+    {
+        if (Camera.main != null)
+        {
+            Camera.main.gameObject.GetComponent<StageManager>().SetGameOver();
+        }
+        Destroy(gameObject.transform.parent.gameObject);
     }
 
     public void ManageBuff(int id)

@@ -18,7 +18,9 @@ public class EnemyManager : MonoBehaviour
     public int lives;
     public bool onShield;
 
+    [SerializeField]
     private Text survivalCountdownText;
+    [SerializeField]
     private Text killsText;
     private float survivalRemaining = 60f;
     private bool winTriggered;
@@ -26,7 +28,8 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        livesUI = new GameObject[3];
+        lives = 3;
+        livesUI = new GameObject[lives];
         for (int i = 0; i < livesUI.Length; i++)
         {
             livesUI[i] = GameObject.Find("Life_" + i);
@@ -35,10 +38,9 @@ public class EnemyManager : MonoBehaviour
         counterObject = Camera.main.gameObject.GetComponent<StageManager>().counterObject;
         activeGameObjects = new List<GameObject>();
         GameObject.Find("Player").GetComponent<PlayerBehavior>().waiting = true;
-        lives = 3;
         level = -1;
 
-        EnsureSurvivalHud();
+        UpdateHud();
     }
 
     void Update()
@@ -114,154 +116,23 @@ public class EnemyManager : MonoBehaviour
         UpdateHud();
     }
 
-    private void EnsureSurvivalHud()
-    {
-        var canvas = GameObject.Find("Canvas");
-        if (canvas == null)
-        {
-            var canvasGo = new GameObject("Canvas");
-            canvas = canvasGo;
-            var c = canvasGo.AddComponent<Canvas>();
-            c.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvasGo.AddComponent<CanvasScaler>();
-            canvasGo.AddComponent<GraphicRaycaster>();
-        }
-
-        var countdownGo = GameObject.Find("SurvivalCountdown");
-        if (countdownGo == null)
-        {
-            countdownGo = new GameObject("SurvivalCountdown");
-            countdownGo.transform.SetParent(canvas.transform);
-            var rt = countdownGo.AddComponent<RectTransform>();
-            rt.anchorMin = new Vector2(1f, 0f);
-            rt.anchorMax = new Vector2(1f, 0f);
-            rt.pivot = new Vector2(1f, 0f);
-            rt.anchoredPosition = new Vector2(-20f, 20f);
-            survivalCountdownText = countdownGo.AddComponent<Text>();
-            survivalCountdownText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            survivalCountdownText.alignment = TextAnchor.LowerRight;
-            survivalCountdownText.fontSize = 24;
-            survivalCountdownText.color = Color.white;
-        }
-        else
-        {
-            survivalCountdownText = countdownGo.GetComponent<Text>();
-        }
-
-        var killsGo = GameObject.Find("KillsText");
-        if (killsGo == null)
-        {
-            killsGo = new GameObject("KillsText");
-            killsGo.transform.SetParent(canvas.transform);
-            var rt2 = killsGo.AddComponent<RectTransform>();
-            rt2.anchorMin = new Vector2(1f, 0f);
-            rt2.anchorMax = new Vector2(1f, 0f);
-            rt2.pivot = new Vector2(1f, 0f);
-            rt2.anchoredPosition = new Vector2(-20f, 50f);
-            killsText = killsGo.AddComponent<Text>();
-            killsText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            killsText.alignment = TextAnchor.LowerRight;
-            killsText.fontSize = 20;
-            killsText.color = Color.white;
-        }
-        else
-        {
-            killsText = killsGo.GetComponent<Text>();
-        }
-
-        UpdateHud();
-    }
-
     private void UpdateHud()
     {
-        if (survivalCountdownText != null)
-        {
-            int seconds = Mathf.CeilToInt(survivalRemaining);
-            survivalCountdownText.text = seconds.ToString() + "s";
-        }
-        if (killsText != null)
-        {
-            killsText.text = "Kills: " + kills.ToString();
-        }
+        int seconds = Mathf.CeilToInt(survivalRemaining);
+        survivalCountdownText.text = "Tempo: " + seconds.ToString() + "s";
+        killsText.text = "Acertos: " + kills.ToString();
     }
 
-    public void ChangeLife(int number)
+    public void ChangeLife(int delta)
     {
-        Debug.Log("ChangeLife: " + number);
-        Debug.Log("Lives: " + lives);
-        Debug.Log("LivesUI: " + livesUI.Length);
-        Debug.Log("Level: " + level);
-
         if (level > 0)
         {
-            lives += number;
+            int maxLives = livesUI.Length;
+            lives = Mathf.Clamp(lives + delta, 0, maxLives);
         }
-        switch (lives)
+        for (int i = 0; i < livesUI.Length; i++)
         {
-            case 0:
-                for (int i = 0; i < livesUI.Length; i++)
-                {
-                    livesUI[i].SetActive(false);
-                }
-                break;
-            case 1:
-                for (int i = 0; i < livesUI.Length; i++)
-                {
-                    if (i > 0)
-                    {
-                        livesUI[i].SetActive(false);
-                    }
-                    else
-                    {
-                        livesUI[i].SetActive(true);
-                    }
-                }
-                break;
-            case 2:
-                for (int i = 0; i < livesUI.Length; i++)
-                {
-                    if (i > 1)
-                    {
-                        livesUI[i].SetActive(false);
-                    }
-                    else
-                    {
-                        livesUI[i].SetActive(true);
-                    }
-                }
-                break;
-            case 3:
-                for (int i = 0; i < livesUI.Length; i++)
-                {
-                    if (i > 2)
-                    {
-                        livesUI[i].SetActive(false);
-                    }
-                    else
-                    {
-                        livesUI[i].SetActive(true);
-                    }
-                }
-                break;
-            case 4:
-                for (int i = 0; i < livesUI.Length; i++)
-                {
-                    if (i > 3)
-                    {
-                        livesUI[i].SetActive(false);
-                    }
-                    else
-                    {
-                        livesUI[i].SetActive(true);
-                    }
-                }
-                break;
-            case 5:
-                for (int i = 0; i < livesUI.Length; i++)
-                {
-                    livesUI[i].SetActive(true);
-                }
-                break;
+            livesUI[i].SetActive(i < lives);
         }
     }
 }
