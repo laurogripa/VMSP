@@ -39,9 +39,23 @@ public class GazeMouseController : MonoBehaviour
 #endif
 
 	private Vector2 smoothedPos;
+	private const string GAZE_PREF_KEY = "GazeMouseEnabled";
+	private static GazeMouseController instance;
 
 	private void Awake()
 	{
+		if (instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+			enableGazeMouse = PlayerPrefs.GetInt(GAZE_PREF_KEY, 1) == 1;
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject);
+			return;
+		}
+		
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		smoothedPos = new Vector2(0.5f, 0.5f);
@@ -52,6 +66,8 @@ public class GazeMouseController : MonoBehaviour
 		if (Input.GetKeyDown(toggleGazeKey))
 		{
 			enableGazeMouse = !enableGazeMouse;
+			PlayerPrefs.SetInt(GAZE_PREF_KEY, enableGazeMouse ? 1 : 0);
+			PlayerPrefs.Save();
 		}
 
 		if (!enableGazeMouse) { return; }
@@ -114,7 +130,6 @@ public class GazeMouseController : MonoBehaviour
 							}
 						}
 
-						// Fixed: Perfect 1:1 mapping with Y-axis inversion for screen coordinates
 						int cx = offsetX + Mathf.RoundToInt(vx * contentW);
 						int cy = offsetY + Mathf.RoundToInt((1f - vy) * contentH);
 						
@@ -139,7 +154,6 @@ public class GazeMouseController : MonoBehaviour
 				float vx = Mathf.Clamp01(smoothedPos.x);
 				float vy = Mathf.Clamp01(smoothedPos.y);
 				
-				// Fixed: Y-axis inversion for screen coordinates
 				finalX = vLeft + Mathf.Clamp(Mathf.RoundToInt(vx * vWidth), 0, vWidth - 1);
 				finalY = vTop + Mathf.Clamp(Mathf.RoundToInt((1f - vy) * vHeight), 0, vHeight - 1);
 				SetCursorPos(finalX, finalY);
