@@ -26,6 +26,20 @@ public class EnemyManager : MonoBehaviour
     private bool winTriggered;
     private int kills;
 
+    void Awake()
+    {
+        if (survivalCountdownText == null)
+        {
+            var sc = GameObject.Find("SurvivalCountdown");
+            if (sc != null) survivalCountdownText = sc.GetComponent<Text>();
+        }
+        if (killsText == null)
+        {
+            var kt = GameObject.Find("KillsText");
+            if (kt != null) killsText = kt.GetComponent<Text>();
+        }
+    }
+
     void Start()
     {
         lives = 3;
@@ -118,9 +132,15 @@ public class EnemyManager : MonoBehaviour
 
     private void UpdateHud()
     {
-        int seconds = Mathf.CeilToInt(survivalRemaining);
-        survivalCountdownText.text = "Tempo: " + seconds.ToString() + "s";
-        killsText.text = "Acertos: " + kills.ToString();
+        if (survivalCountdownText != null)
+        {
+            int seconds = Mathf.CeilToInt(survivalRemaining);
+            survivalCountdownText.text = "Tempo: " + seconds.ToString() + "s";
+        }
+        if (killsText != null)
+        {
+            killsText.text = "Acertos: " + kills.ToString();
+        }
     }
 
     public void ChangeLife(int delta)
