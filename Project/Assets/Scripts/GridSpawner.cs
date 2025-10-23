@@ -20,28 +20,51 @@ public class GridSpawner : MonoBehaviour
     private int gridWidth = 3;
     private int gridHeight = 3;
     private bool canSelect = false;
-    private bool isSwitching = false;
     private Text scoreText;
     private Text feedbackText;
     private Text timerText;
     private GameObject countdownPanel;
     private GameObject feedbackGO;
+    private bool isSwitching = false;
 
     private void Start()
     {
         CreateScoreDisplay();
         CreateTimerDisplay();
         CreateFeedbackDisplay();
-        GetAllCells(3, 3);
+        ClearAllCellSprites();
+
+        gridWidth = 3;
+        gridHeight = 3;
+        AddListenerToCells(gridWidth, gridHeight);
+
         StartCoroutine(GameLoop());
+    }
+
+    private void ClearAllCellSprites()
+    {
+        foreach (Transform child in grid3x3.transform)
+        {
+            Image img = child.GetComponent<Image>();
+            if (img != null)
+                img.sprite = null;
+        }
+        foreach (Transform child in grid4x4.transform)
+        {
+            Image img = child.GetComponent<Image>();
+            if (img != null)
+                img.sprite = null;
+        }
     }
 
     private void CreateScoreDisplay()
     {
         Canvas c = FindObjectOfType<Canvas>();
-        GameObject sg = new GameObject("ScoreText");
-        sg.transform.SetParent(c.transform, false);
-        scoreText = sg.AddComponent<Text>();
+        Transform existing = c.transform.Find("ScoreText");
+        GameObject sg = existing != null ? existing.gameObject : new GameObject("ScoreText");
+        if (existing == null) sg.transform.SetParent(c.transform, false);
+        scoreText = sg.GetComponent<Text>();
+        if (scoreText == null) scoreText = sg.AddComponent<Text>();
         scoreText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         scoreText.text = "Pontos: 0";
         scoreText.fontSize = 42;
@@ -58,9 +81,11 @@ public class GridSpawner : MonoBehaviour
     private void CreateTimerDisplay()
     {
         Canvas c = FindObjectOfType<Canvas>();
-        GameObject tg = new GameObject("TimerText");
-        tg.transform.SetParent(c.transform, false);
-        timerText = tg.AddComponent<Text>();
+        Transform existing = c.transform.Find("TimerText");
+        GameObject tg = existing != null ? existing.gameObject : new GameObject("TimerText");
+        if (existing == null) tg.transform.SetParent(c.transform, false);
+        timerText = tg.GetComponent<Text>();
+        if (timerText == null) timerText = tg.AddComponent<Text>();
         timerText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         timerText.text = "Tempo: 500ms";
         timerText.fontSize = 42;
@@ -77,16 +102,19 @@ public class GridSpawner : MonoBehaviour
     private void CreateFeedbackDisplay()
     {
         Canvas c = FindObjectOfType<Canvas>();
-        feedbackGO = new GameObject("FeedbackText");
-        feedbackGO.transform.SetParent(c.transform, false);
-        feedbackText = feedbackGO.AddComponent<Text>();
+        Transform existing = c.transform.Find("FeedbackText");
+        feedbackGO = existing != null ? existing.gameObject : new GameObject("FeedbackText");
+        if (existing == null) feedbackGO.transform.SetParent(c.transform, false);
+        feedbackText = feedbackGO.GetComponent<Text>();
+        if (feedbackText == null) feedbackText = feedbackGO.AddComponent<Text>();
         feedbackText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         feedbackText.text = "";
         feedbackText.fontSize = 60;
         feedbackText.fontStyle = FontStyle.Bold;
         feedbackText.alignment = TextAnchor.MiddleCenter;
         feedbackText.color = new Color(1, 1, 1, 1);
-        CanvasGroup cg = feedbackGO.AddComponent<CanvasGroup>();
+        CanvasGroup cg = feedbackGO.GetComponent<CanvasGroup>();
+        if (cg == null) cg = feedbackGO.AddComponent<CanvasGroup>();
         cg.blocksRaycasts = false;
         cg.alpha = 1f;
         RectTransform r = feedbackGO.GetComponent<RectTransform>();
@@ -96,11 +124,11 @@ public class GridSpawner : MonoBehaviour
         r.sizeDelta = new Vector2(800, 200);
     }
 
-    private void GetAllCells(int gridX, int gridY)
+    private void AddListenerToCells(int gridX, int gridY)
     {
         cells.Clear();
         GameObject activeGrid = (gridX == 4) ? grid4x4 : grid3x3;
-        
+
         for (int r = 0; r < gridY; r++)
         {
             for (int c = 0; c < gridX; c++)
@@ -113,6 +141,7 @@ public class GridSpawner : MonoBehaviour
                     Image img = t.GetComponent<Image>();
                     if (img != null)
                     {
+                        img.sprite = null;
                         cells.Add(img);
                         int idx = cells.Count - 1;
                         img.raycastTarget = true;
@@ -133,13 +162,10 @@ public class GridSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (isSwitching)
-            {
-                yield return new WaitForSeconds(0.1f);
-                continue;
-            }
-            
             canSelect = false;
+            if (isSwitching)
+                yield return new WaitUntil(() => !isSwitching);
+            ClearAllCellSprites();
             countdownPanel = CreateCountdownOverlay();
             Text tx = countdownPanel.GetComponentInChildren<Text>();
             for (int i = 3; i >= 1; i--)
@@ -148,8 +174,12 @@ public class GridSpawner : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             if (countdownPanel != null)
+            {
+                Text t = countdownPanel.GetComponentInChildren<Text>();
+                if (t != null) t.text = "";
                 Destroy(countdownPanel);
-            
+            }
+
             GenerateBalancedSprites(gridWidth, gridHeight);
             ShowSprites();
             yield return new WaitForSeconds(0.5f);
@@ -164,6 +194,7 @@ public class GridSpawner : MonoBehaviour
         Canvas c = FindObjectOfType<Canvas>();
         GameObject p = new GameObject("CountdownPanel");
         p.transform.SetParent(c.transform, false);
+        p.transform.SetAsLastSibling();
         Image im = p.AddComponent<Image>();
         im.color = new Color(0, 0, 0, 0.7f);
         im.raycastTarget = false;
@@ -193,15 +224,15 @@ public class GridSpawner : MonoBehaviour
         if (!canSelect) return;
         canSelect = false;
         cells[idx].sprite = spritesToAssign[idx];
-        
+
         if (idx == targetCellIndex)
         {
             score++;
             scoreText.text = "Pontos: " + score;
             feedbackText.text = "Acertou!";
             feedbackText.color = new Color(0, 1, 0, 1);
-            
-            if (score == 5)
+
+            if (score == 2)
             {
                 StartCoroutine(CorrectAnswerThenSwitch());
             }
@@ -220,20 +251,23 @@ public class GridSpawner : MonoBehaviour
 
     private IEnumerator CorrectAnswerThenSwitch()
     {
-        yield return new WaitForSeconds(1f);
-        
         isSwitching = true;
+        yield return new WaitForSeconds(1f);
+
+        HideSprites();
         feedbackText.text = "Aumentando células...";
         feedbackText.color = new Color(1, 1, 0, 1);
         yield return new WaitForSeconds(2f);
-        
+
+        ClearAllCellSprites();
         grid3x3.SetActive(false);
         grid4x4.SetActive(true);
         gridWidth = 4;
         gridHeight = 4;
-        GetAllCells(4, 4);
-        HideSprites();
+        AddListenerToCells(gridWidth, gridHeight);
         feedbackText.text = "";
+        if (scoreText != null)
+            scoreText.text = "Pontos: " + score;
         isSwitching = false;
     }
 
@@ -247,13 +281,13 @@ public class GridSpawner : MonoBehaviour
     {
         spritesToAssign.Clear();
         int total = gridX * gridY;
-        
+
         spritesToAssign.Add(targetSprite);
-        
+
         Sprite[] colors = { purpleSprite, greenSprite, redSprite, yellowSprite };
         int remaining = total - 1;
         int colorIndex = 0;
-        
+
         while (remaining > 0)
         {
             spritesToAssign.Add(colors[colorIndex % 4]);
@@ -261,7 +295,7 @@ public class GridSpawner : MonoBehaviour
             colorIndex++;
             remaining -= 2;
         }
-        
+
         for (int i = spritesToAssign.Count - 1; i > 0; i--)
         {
             int rnd = Random.Range(0, i + 1);
