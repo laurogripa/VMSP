@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,11 +10,17 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private Sprite redSprite;
     [SerializeField] private Sprite yellowSprite;
     [SerializeField] private Sprite targetSprite;
+    [SerializeField] private GameObject grid3x3;
+    [SerializeField] private GameObject grid4x4;
+
     private List<Image> cells = new List<Image>();
     private List<Sprite> spritesToAssign = new List<Sprite>();
     private int score = 0;
-    private bool canSelect = false;
     private int targetCellIndex = -1;
+    private int gridWidth = 3;
+    private int gridHeight = 3;
+    private bool canSelect = false;
+    private bool isSwitching = false;
     private Text scoreText;
     private Text feedbackText;
     private Text timerText;
@@ -27,37 +32,8 @@ public class GridSpawner : MonoBehaviour
         CreateScoreDisplay();
         CreateTimerDisplay();
         CreateFeedbackDisplay();
-        GetAllCells();
+        GetAllCells(3, 3);
         StartCoroutine(GameLoop());
-    }
-
-    private void GetAllCells()
-    {
-        for (int r = 0; r < 3; r++)
-        {
-            for (int c = 0; c < 3; c++)
-            {
-                string n = "Cell_" + r + "_" + c;
-                Transform t = transform.Find(n);
-                if (t != null)
-                {
-                    Image img = t.GetComponent<Image>();
-                    if (img != null)
-                    {
-                        cells.Add(img);
-                        int idx = cells.Count - 1;
-                        img.raycastTarget = true;
-                        Button btn = img.gameObject.AddComponent<Button>();
-                        btn.targetGraphic = img;
-                        Navigation nav = new Navigation();
-                        nav.mode = Navigation.Mode.None;
-                        btn.navigation = nav;
-                        int cellIdx = idx;
-                        btn.onClick.AddListener(() => { OnCellSelected(cellIdx); });
-                    }
-                }
-            }
-        }
     }
 
     private void CreateScoreDisplay()
@@ -120,10 +96,49 @@ public class GridSpawner : MonoBehaviour
         r.sizeDelta = new Vector2(800, 200);
     }
 
+    private void GetAllCells(int gridX, int gridY)
+    {
+        cells.Clear();
+        GameObject activeGrid = (gridX == 4) ? grid4x4 : grid3x3;
+        
+        for (int r = 0; r < gridY; r++)
+        {
+            for (int c = 0; c < gridX; c++)
+            {
+                string suffix = (gridX == 4) ? "1" : "0";
+                string n = "Cell_" + r + "_" + c + "_" + suffix;
+                Transform t = activeGrid.transform.Find(n);
+                if (t != null)
+                {
+                    Image img = t.GetComponent<Image>();
+                    if (img != null)
+                    {
+                        cells.Add(img);
+                        int idx = cells.Count - 1;
+                        img.raycastTarget = true;
+                        Button btn = img.gameObject.GetComponent<Button>();
+                        if (btn == null)
+                            btn = img.gameObject.AddComponent<Button>();
+                        btn.targetGraphic = img;
+                        int cellIdx = idx;
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => OnCellSelected(cellIdx));
+                    }
+                }
+            }
+        }
+    }
+
     private IEnumerator GameLoop()
     {
         while (true)
         {
+            if (isSwitching)
+            {
+                yield return new WaitForSeconds(0.1f);
+                continue;
+            }
+            
             canSelect = false;
             countdownPanel = CreateCountdownOverlay();
             Text tx = countdownPanel.GetComponentInChildren<Text>();
@@ -134,41 +149,14 @@ public class GridSpawner : MonoBehaviour
             }
             if (countdownPanel != null)
                 Destroy(countdownPanel);
-            GenerateBalancedSprites();
+            
+            GenerateBalancedSprites(gridWidth, gridHeight);
             ShowSprites();
             yield return new WaitForSeconds(0.5f);
             HideSprites();
             canSelect = true;
             yield return new WaitUntil(() => !canSelect);
         }
-    }
-
-    private void OnCellSelected(int idx)
-    {
-        if (!canSelect)
-            return;
-        canSelect = false;
-        cells[idx].sprite = spritesToAssign[idx];
-        if (idx == targetCellIndex)
-        {
-            score++;
-            scoreText.text = "Pontos: " + score;
-            feedbackText.text = "Acertou!";
-            feedbackText.color = new Color(0, 1, 0, 1);
-            StartCoroutine(ClearFeedback());
-        }
-        else
-        {
-            feedbackText.text = "Tente novamente!";
-            feedbackText.color = new Color(1, 0, 0, 1);
-            StartCoroutine(ClearFeedback());
-        }
-    }
-
-    private IEnumerator ClearFeedback()
-    {
-        yield return new WaitForSeconds(1f);
-        feedbackText.text = "";
     }
 
     private GameObject CreateCountdownOverlay()
@@ -200,18 +188,80 @@ public class GridSpawner : MonoBehaviour
         return p;
     }
 
-    private void GenerateBalancedSprites()
+    private void OnCellSelected(int idx)
+    {
+        if (!canSelect) return;
+        canSelect = false;
+        cells[idx].sprite = spritesToAssign[idx];
+        
+        if (idx == targetCellIndex)
+        {
+            score++;
+            scoreText.text = "Pontos: " + score;
+            feedbackText.text = "Acertou!";
+            feedbackText.color = new Color(0, 1, 0, 1);
+            
+            if (score == 5)
+            {
+                StartCoroutine(CorrectAnswerThenSwitch());
+            }
+            else
+            {
+                StartCoroutine(ClearFeedback());
+            }
+        }
+        else
+        {
+            feedbackText.text = "Tente novamente!";
+            feedbackText.color = new Color(1, 0, 0, 1);
+            StartCoroutine(ClearFeedback());
+        }
+    }
+
+    private IEnumerator CorrectAnswerThenSwitch()
+    {
+        yield return new WaitForSeconds(1f);
+        
+        isSwitching = true;
+        feedbackText.text = "Aumentando células...";
+        feedbackText.color = new Color(1, 1, 0, 1);
+        yield return new WaitForSeconds(2f);
+        
+        grid3x3.SetActive(false);
+        grid4x4.SetActive(true);
+        gridWidth = 4;
+        gridHeight = 4;
+        GetAllCells(4, 4);
+        HideSprites();
+        feedbackText.text = "";
+        isSwitching = false;
+    }
+
+    private IEnumerator ClearFeedback()
+    {
+        yield return new WaitForSeconds(1f);
+        feedbackText.text = "";
+    }
+
+    private void GenerateBalancedSprites(int gridX, int gridY)
     {
         spritesToAssign.Clear();
+        int total = gridX * gridY;
+        
         spritesToAssign.Add(targetSprite);
-        spritesToAssign.Add(purpleSprite);
-        spritesToAssign.Add(purpleSprite);
-        spritesToAssign.Add(greenSprite);
-        spritesToAssign.Add(greenSprite);
-        spritesToAssign.Add(redSprite);
-        spritesToAssign.Add(redSprite);
-        spritesToAssign.Add(yellowSprite);
-        spritesToAssign.Add(yellowSprite);
+        
+        Sprite[] colors = { purpleSprite, greenSprite, redSprite, yellowSprite };
+        int remaining = total - 1;
+        int colorIndex = 0;
+        
+        while (remaining > 0)
+        {
+            spritesToAssign.Add(colors[colorIndex % 4]);
+            spritesToAssign.Add(colors[colorIndex % 4]);
+            colorIndex++;
+            remaining -= 2;
+        }
+        
         for (int i = spritesToAssign.Count - 1; i > 0; i--)
         {
             int rnd = Random.Range(0, i + 1);
