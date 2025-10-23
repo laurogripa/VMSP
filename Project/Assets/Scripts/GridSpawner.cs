@@ -26,6 +26,7 @@ public class GridSpawner : MonoBehaviour
     private GameObject countdownPanel;
     private GameObject feedbackGO;
     private bool isSwitching = false;
+    private float spriteDisplayTime = 0.5f;
 
     private void Start()
     {
@@ -87,7 +88,7 @@ public class GridSpawner : MonoBehaviour
         timerText = tg.GetComponent<Text>();
         if (timerText == null) timerText = tg.AddComponent<Text>();
         timerText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        timerText.text = "Tempo: 500ms";
+        UpdateTimerDisplay();
         timerText.fontSize = 42;
         timerText.fontStyle = FontStyle.Bold;
         timerText.color = Color.white;
@@ -97,6 +98,12 @@ public class GridSpawner : MonoBehaviour
         r.anchorMax = new Vector2(0.5f, 0.5f);
         r.anchoredPosition = new Vector2(170, 380);
         r.sizeDelta = new Vector2(400, 80);
+    }
+
+    private void UpdateTimerDisplay()
+    {
+        if (timerText != null)
+            timerText.text = "Tempo: " + (spriteDisplayTime * 1000).ToString("F0") + "ms";
     }
 
     private void CreateFeedbackDisplay()
@@ -165,7 +172,6 @@ public class GridSpawner : MonoBehaviour
             canSelect = false;
             if (isSwitching)
                 yield return new WaitUntil(() => !isSwitching);
-            ClearAllCellSprites();
             countdownPanel = CreateCountdownOverlay();
             Text tx = countdownPanel.GetComponentInChildren<Text>();
             for (int i = 3; i >= 1; i--)
@@ -182,7 +188,7 @@ public class GridSpawner : MonoBehaviour
 
             GenerateBalancedSprites(gridWidth, gridHeight);
             ShowSprites();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(spriteDisplayTime);
             HideSprites();
             canSelect = true;
             yield return new WaitUntil(() => !canSelect);
@@ -232,7 +238,10 @@ public class GridSpawner : MonoBehaviour
             feedbackText.text = "Acertou!";
             feedbackText.color = new Color(0, 1, 0, 1);
 
-            if (score == 2)
+            IncreaseDifficulty();
+            UpdateTimerDisplay();
+
+            if (score == 8)
             {
                 StartCoroutine(CorrectAnswerThenSwitch());
             }
@@ -249,6 +258,16 @@ public class GridSpawner : MonoBehaviour
         }
     }
 
+    private void IncreaseDifficulty()
+    {
+        if (spriteDisplayTime > 0.1f)
+            spriteDisplayTime -= 0.1f;
+
+        // Safeguard
+        if (spriteDisplayTime < 0.1f)
+            spriteDisplayTime = 0.1f;
+    }
+
     private IEnumerator CorrectAnswerThenSwitch()
     {
         isSwitching = true;
@@ -256,7 +275,7 @@ public class GridSpawner : MonoBehaviour
 
         HideSprites();
         feedbackText.text = "Aumentando células...";
-        feedbackText.color = new Color(1, 1, 0, 1);
+        feedbackText.color = new Color(0, 1, 0, 1);
         yield return new WaitForSeconds(2f);
 
         ClearAllCellSprites();
@@ -265,6 +284,8 @@ public class GridSpawner : MonoBehaviour
         gridWidth = 4;
         gridHeight = 4;
         AddListenerToCells(gridWidth, gridHeight);
+        spriteDisplayTime = 0.5f;
+        UpdateTimerDisplay();
         feedbackText.text = "";
         if (scoreText != null)
             scoreText.text = "Pontos: " + score;
