@@ -201,6 +201,9 @@ public class GridSpawner : MonoBehaviour
         GameObject p = new GameObject("CountdownPanel");
         p.transform.SetParent(c.transform, false);
         p.transform.SetAsLastSibling();
+        Canvas pCanvas = p.AddComponent<Canvas>();
+        pCanvas.overrideSorting = true;
+        pCanvas.sortingOrder = 100;
         Image im = p.AddComponent<Image>();
         im.color = new Color(0, 0, 0, 0.7f);
         im.raycastTarget = false;
@@ -238,10 +241,10 @@ public class GridSpawner : MonoBehaviour
             feedbackText.text = "Acertou!";
             feedbackText.color = new Color(0, 1, 0, 1);
 
-            IncreaseDifficulty();
+            DecreaseDifficulty();
             UpdateTimerDisplay();
 
-            if (score == 8)
+            if (score == 5)
             {
                 StartCoroutine(CorrectAnswerThenSwitch());
             }
@@ -258,14 +261,14 @@ public class GridSpawner : MonoBehaviour
         }
     }
 
-    private void IncreaseDifficulty()
+    private void DecreaseDifficulty()
     {
-        if (spriteDisplayTime > 0.1f)
-            spriteDisplayTime -= 0.1f;
-
-        // Safeguard
-        if (spriteDisplayTime < 0.1f)
-            spriteDisplayTime = 0.1f;
+        if (spriteDisplayTime > 0.25f)
+        {
+            spriteDisplayTime -= 0.05f;
+            if (spriteDisplayTime < 0.25f)
+                spriteDisplayTime = 0.25f;
+        }
     }
 
     private IEnumerator CorrectAnswerThenSwitch()
@@ -275,7 +278,7 @@ public class GridSpawner : MonoBehaviour
 
         HideSprites();
         feedbackText.text = "Aumentando células...";
-        feedbackText.color = new Color(0, 1, 0, 1);
+        feedbackText.color = new Color(1, 1, 0, 1);
         yield return new WaitForSeconds(2f);
 
         ClearAllCellSprites();

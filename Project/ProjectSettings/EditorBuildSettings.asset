@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defense.unity
     guid: cc3990d00127a674aabd09fbca9c3e59
+  - enabled: 1
+    path: Assets/Scenes/Select.unity
+    guid: ebeb67fb21ed2462a93d5873b81b4fe4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
