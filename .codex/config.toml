@@ -1,0 +1,8 @@
+# Codex adapter for this repository.
+# Canonical instructions live in ../AI_POLICY.md.
+
+policy_file = "../AI_POLICY.md"
+context_ignore_file = "../AI_CONTEXT.ignore"
+
+[validation]
+unity_guardrails = "python3 tools/ai-guardrails/check_ai_guardrails.py"

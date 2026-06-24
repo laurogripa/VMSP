@@ -1,0 +1,42 @@
+# Cursor adapter for canonical context pruning.
+# Keep this aligned with AI_CONTEXT.ignore.
+
+.git/
+.DS_Store
+Project/Library/
+Project/Temp/
+Project/Obj/
+Project/Build/
+Project/Builds/
+Project/Logs/
+Project/UserSettings/
+Project/MemoryCaptures/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+Project/Assets/Plugins/
+Project/Assets/Tobii/
+Project/Assets/Joystick Pack/
+Project/Assets/TextMesh Pro/
+Project/Assets/Nytrock/
+*.anim
+*.asset
+*.controller
+*.fbx
+*.fontsettings
+*.mat
+*.mp3
+*.mp4
+*.ogg
+*.png
+*.prefab
+*.psd
+*.tga
+*.ttf
+*.unity
+*.wav
+Project/Packages/packages-lock.json

@@ -1,0 +1,13 @@
+---
+description: Unity repository policy
+alwaysApply: true
+---
+
+Follow the canonical repository policy in `AI_POLICY.md`.
+
+Key gates:
+
+- Do not update Unity packages, scenes, prefabs, asmdefs, or project settings without explicit approval.
+- Keep Unity MCP local-only and use it primarily for Editor-state inspection unless a task-specific mutation plan is approved.
+- Run `python3 tools/ai-guardrails/check_ai_guardrails.py` before handing off Unity C# changes.
+- Use `AI_CONTEXT.ignore` as the context-pruning source of truth.
