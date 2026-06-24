@@ -92,6 +92,27 @@ Disable extra groups after use to reduce prompt size and wrong-tool selection.
 
 Roslyn validation is optional. Recommend it only when agents will write substantial C# through MCP or repeated compile errors occur. Do not install Roslyn DLLs automatically because that adds files under `Assets/Plugins/Roslyn/` and changes scripting define symbols.
 
+## Iteration Caps
+
+For Unity scene layout, visual adjustment, gameplay presentation, or MCP inspection tasks:
+
+- Maximum 1 inspection pass before editing.
+- Maximum 1 implementation pass before verification.
+- Maximum 1 verification pass after editing.
+- Maximum 2 total correction attempts for the same visual issue.
+- After the second correction attempt, stop and report the best current result instead of continuing to tune.
+
+A pass means:
+
+- inspection pass: reading scene state, hierarchy, transforms, scripts, or taking one screenshot
+- implementation pass: one grouped set of edits for the issue
+- verification pass: one validation step such as one screenshot, one play check, or one scene inspection
+
+Do not loop on visual polish without a new user instruction.
+If the next step would be another guess-based adjustment, stop and ask for direction.
+State the exact files, objects, or transforms to be changed before making Unity visual or layout edits.
+Prefer one numeric correction over multiple micro-adjustments.
+
 ## Context Policy
 
 Use `AI_CONTEXT.ignore` as the canonical context-pruning policy. Tool-specific ignore files should mirror or point to it.

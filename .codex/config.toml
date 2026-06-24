@@ -6,3 +6,9 @@ context_ignore_file = "../AI_CONTEXT.ignore"
 
 [validation]
 unity_guardrails = "python3 tools/ai-guardrails/check_ai_guardrails.py"
+
+[unity]
+use_mcp_by_default = true
+visual_iteration_cap = 2
+avoid_repeated_screenshot_adjust_cycles = true
+prefer_numeric_corrections = true

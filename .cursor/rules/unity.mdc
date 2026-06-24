@@ -10,5 +10,8 @@ Key gates:
 - Use MCP for Unity by default for Unity work unless it is clearly unnecessary for the specific task.
 - Do not update Unity packages, scenes, prefabs, asmdefs, or project settings without explicit approval.
 - Keep Unity MCP local-only and use it primarily for Editor-state inspection unless a task-specific mutation plan is approved.
+- Cap same-issue visual iteration at 2 correction attempts.
+- Do not perform repeated screenshot-adjust cycles.
+- Prefer one numeric correction over multiple micro-adjustments.
 - Run `python3 tools/ai-guardrails/check_ai_guardrails.py` before handing off Unity C# changes.
 - Use `AI_CONTEXT.ignore` as the context-pruning source of truth.
