@@ -233,18 +233,16 @@ public class GridSpawner : MonoBehaviour
         if (!canSelect) return;
         canSelect = false;
         cells[idx].sprite = spritesToAssign[idx];
+        bool isCorrect = idx == targetCellIndex;
 
-        if (idx == targetCellIndex)
+        if (isCorrect)
         {
             score++;
             scoreText.text = "Pontos: " + score;
             feedbackText.text = "Acertou!";
             feedbackText.color = new Color(0, 1, 0, 1);
 
-            DecreaseDifficulty();
-            UpdateTimerDisplay();
-
-            if (score == 5)
+            if (score == 8)
             {
                 StartCoroutine(CorrectAnswerThenSwitch());
             }
@@ -259,16 +257,23 @@ public class GridSpawner : MonoBehaviour
             feedbackText.color = new Color(1, 0, 0, 1);
             StartCoroutine(ClearFeedback());
         }
+
+        AdjustDifficulty(isCorrect);
+        UpdateTimerDisplay();
     }
 
-    private void DecreaseDifficulty()
+    private void AdjustDifficulty(bool isCorrect)
     {
-        if (spriteDisplayTime > 0.25f)
-        {
-            spriteDisplayTime -= 0.05f;
-            if (spriteDisplayTime < 0.25f)
-                spriteDisplayTime = 0.25f;
-        }
+        if (isCorrect && spriteDisplayTime > 0.100f)
+            spriteDisplayTime -= 0.100f;
+        else if (!isCorrect && spriteDisplayTime < 0.500f)
+            spriteDisplayTime += 0.100f;
+
+        // Safeguards
+        if (spriteDisplayTime < 0.100f)
+            spriteDisplayTime = 0.100f;
+        if (spriteDisplayTime > 0.500f)
+            spriteDisplayTime = 0.500f;
     }
 
     private IEnumerator CorrectAnswerThenSwitch()
