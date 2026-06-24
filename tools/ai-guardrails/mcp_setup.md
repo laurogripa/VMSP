@@ -55,6 +55,7 @@ Stdio fallback:
 
 ## Operating Rules
 
+- Use MCP for Unity by default for Unity work unless it is clearly unnecessary for the specific task.
 - Keep Unity MCP local-only by default.
 - Do not use remote MCP server mode unless auth, network exposure, and secrets handling have been reviewed.
 - Prefer MCP inspection before risky Unity edits involving scenes, prefabs, serialized references, assets, or Editor state.

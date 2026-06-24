@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,8 +8,9 @@ public class FixCamera : MonoBehaviour
     [SerializeField] private GameObject referenceIn, referenceOut;
     private Camera gameCam;
 
-    void Start()
+void Start()
     {
+        gameCam = gameObject.GetComponent<Camera>();
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
             switch (SceneManager.GetActiveScene().name)
@@ -18,14 +19,18 @@ public class FixCamera : MonoBehaviour
                     Screen.orientation = ScreenOrientation.Portrait;
                     break;
                 case "Labyrinth":
-                    Screen.orientation = ScreenOrientation.Portrait;
+                    Screen.orientation = ScreenOrientation.LandscapeLeft;
                     break;
                 case "Genius":
                     Screen.orientation = ScreenOrientation.LandscapeLeft;
                     break;
             }
         }
-        gameCam = gameObject.GetComponent<Camera>();
+        if (SceneManager.GetActiveScene().name == "Labyrinth")
+        {
+            gameCam.orthographicSize = 3.05f;
+            return;
+        }
         if (!IsTargetVisible(gameCam, referenceIn))
         {
             IncreaseSize();

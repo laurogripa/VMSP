@@ -52,6 +52,8 @@ Before finalizing a change:
 
 `MCP for Unity` is the recommended Unity MCP bridge for this repository because it integrates with the Unity Editor and supports scene, asset, script, test, tool-group, and optional Roslyn validation workflows.
 
+For Unity work, always use MCP for Unity by default unless it is clearly unnecessary for the specific task. Routine pure text edits to non-Unity docs may skip MCP. Scene, prefab, asset, project setting, play mode, camera, UI, and gameplay validation work must use MCP when the bridge is available.
+
 Current repository dependency, from `Project/Packages/manifest.json`:
 
 ```text

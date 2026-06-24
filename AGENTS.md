@@ -2,6 +2,8 @@
 
 Follow the canonical repository policy in `AI_POLICY.md`.
 
+For Unity work, use MCP for Unity by default unless it is clearly unnecessary for the specific task.
+
 Before handing off Unity C# changes, run:
 
 ```sh

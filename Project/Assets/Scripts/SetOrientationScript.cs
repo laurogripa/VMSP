@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +15,7 @@ public class SetOrientationScript : MonoBehaviour
                     Screen.orientation = ScreenOrientation.Portrait;
                     break;
                 case "Labyrinth":
-                    Screen.orientation = ScreenOrientation.Portrait;
+                    Screen.orientation = ScreenOrientation.LandscapeLeft;
                     break;
                 case "Genius":
                     Screen.orientation = ScreenOrientation.LandscapeLeft;

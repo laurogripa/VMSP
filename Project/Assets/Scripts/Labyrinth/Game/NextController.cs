@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +15,8 @@ public class NextController : MonoBehaviour
     private GameObject lineBox, currentMaze;
     [SerializeField] private Text levelText;
     private ManageControls controls;
+    private Transform gameElementsRoot;
+
 
     private void Awake()
     {
@@ -22,15 +24,16 @@ public class NextController : MonoBehaviour
         levelText = GameObject.Find("Level").GetComponent<Text>();
     }
 
-    void Start()
+void Start()
     {
         fadeOut = true;
         alpha = 1f;
         lineBox = GameObject.Find("Line Box");
         controls = GameObject.Find("Neuron").GetComponent<ManageControls>();
+        gameElementsRoot = transform.parent;
         level = 1;
         currentMaze = Instantiate(mazes[level - 1]);
-        currentMaze.transform.SetParent(GameObject.Find("GameElements").transform);
+        ParentCurrentMaze();
         checkWin = new bool[3];
         string newRegistry = PlayerPrefs.GetString("PlayerRegistry");
         newRegistry += "\n" + System.DateTime.Now.ToString("dd / MM / yyyy") + " às " + System.DateTime.Now.ToString("HH: mm: ss") + "\n#Start | Estágio 1: Fase " + level + "\n";
@@ -148,14 +151,14 @@ public class NextController : MonoBehaviour
         }
     }
 
-    private void LoadNewLevel()
+private void LoadNewLevel()
     {
         DestroyLines();
         Destroy(currentMaze);
         level++;
         GameObject.Find("Lifes").GetComponent<S2LifeManager>().ChangeLife(false);
         currentMaze = Instantiate(mazes[level - 1]);
-        currentMaze.transform.SetParent(GameObject.Find("GameElements").transform);
+        ParentCurrentMaze();
         levelText.text = "Nivel " + level;
         for (int i = 0; i < checkWin.Length; i++)
         {
@@ -163,7 +166,7 @@ public class NextController : MonoBehaviour
         }
         win = false;
         string newRegistry = PlayerPrefs.GetString("PlayerRegistry");
-        newRegistry += "\n"+System.DateTime.Now.ToString("dd / MM / yyyy") + " às " + System.DateTime.Now.ToString("HH: mm: ss") + "\n#Start | Estágio 1: Fase " + level + "\n";
+        newRegistry += "\n" + System.DateTime.Now.ToString("dd / MM / yyyy") + " às " + System.DateTime.Now.ToString("HH: mm: ss") + "\n#Start | Estágio 1: Fase " + level + "\n";
         PlayerPrefs.SetString("PlayerRegistry", newRegistry);
     }
 
@@ -185,5 +188,13 @@ public class NextController : MonoBehaviour
     public int getLevel()
     {
         return level;
+    }
+
+
+private void ParentCurrentMaze()
+    {
+        currentMaze.transform.SetParent(gameElementsRoot, false);
+        currentMaze.transform.localPosition = new Vector3(0f, 0f, -1144.8628f);
+        currentMaze.transform.localRotation = Quaternion.identity;
     }
 }
