@@ -55,16 +55,16 @@ Before finalizing a change:
 Current repository dependency, from `Project/Packages/manifest.json`:
 
 ```text
-https://github.com/CoplayDev/unity-mcp.git?path=/UnityMcpBridge
+https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main
 ```
 
-Current documented install path:
+This matches the current documented install path:
 
 ```text
 https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main
 ```
 
-Do not change the package URL during routine AI setup. Package updates require explicit approval.
+The package installation is working with the latest configured Git URL. Runtime server health is still unknown in this repo-only context when the Unity MCP bridge is not running. Do not change the package URL during routine AI setup. Package updates require explicit approval.
 
 Use Unity MCP when Unity Editor state matters:
 

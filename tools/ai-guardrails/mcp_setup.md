@@ -7,14 +7,16 @@ This repository uses `AI_POLICY.md` as the canonical operating contract. This fi
 `Project/Packages/manifest.json` currently declares:
 
 ```json
-"com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/UnityMcpBridge"
+"com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main"
 ```
 
-The currently documented Git URL install path for MCP for Unity is:
+This matches the currently documented Git URL install path for MCP for Unity:
 
 ```text
 https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main
 ```
+
+The installation is working with the latest configured Git URL. Runtime server health is unknown from repository inspection when the Unity MCP bridge is not running.
 
 Do not change the package URL as part of AI setup. Package changes require explicit approval.
 
@@ -85,7 +87,7 @@ If the Unity Editor is available, open:
 Window -> MCP for Unity
 ```
 
-Confirm server/client status and the active tool groups manually.
+Confirm server/client status and the active tool groups manually. If the bridge is not running, record server health as unknown rather than failed unless a connection attempt was explicitly made and failed.
 
 ## References
 
