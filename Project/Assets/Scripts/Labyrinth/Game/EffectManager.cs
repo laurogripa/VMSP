@@ -15,14 +15,16 @@ public class EffectManager : MonoBehaviour
         lineRenderer = gameObject.transform.parent.gameObject.GetComponent<LineRenderer>();
         linePositions = new Vector3[lineRenderer.positionCount];
         lineRenderer.GetPositions(linePositions);
+        transform.position = transform.parent.TransformPoint(linePositions[0]);
     }
 
     void FixedUpdate()
     {
         if(!BackAction.onPause)
         {
-            transform.position = Vector3.MoveTowards(transform.position, linePositions[currentVector], 0.05f);
-            if (Vector3.Distance(transform.position, linePositions[currentVector]) < 0.02f && currentVector < linePositions.Length)
+            Vector3 targetPosition = transform.parent.TransformPoint(linePositions[currentVector]);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, 0.05f);
+            if (Vector3.Distance(transform.position, targetPosition) < 0.02f && currentVector < linePositions.Length)
             {
                 currentVector++;
             }

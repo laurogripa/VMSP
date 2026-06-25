@@ -16,18 +16,25 @@ public class NextController : MonoBehaviour
     [SerializeField] private Text levelText;
     private ManageControls controls;
     private Transform gameElementsRoot;
-
+    private bool HasFade => fadeImage != null;
 
     private void Awake()
     {
-        fadeImage = GameObject.Find("Fade").GetComponent<RawImage>();
+        if (fadeImage == null)
+        {
+            Transform fadeTransform = transform.root.Find("Fade");
+            if (fadeTransform != null)
+            {
+                fadeImage = fadeTransform.GetComponent<RawImage>();
+            }
+        }
         levelText = GameObject.Find("Level").GetComponent<Text>();
     }
 
-void Start()
+    void Start()
     {
-        fadeOut = true;
-        alpha = 1f;
+        fadeOut = HasFade;
+        alpha = HasFade ? 1f : 0f;
         lineBox = GameObject.Find("Line Box");
         controls = GameObject.Find("Neuron").GetComponent<ManageControls>();
         gameElementsRoot = transform.parent;
@@ -59,6 +66,11 @@ void Start()
             {
                 if (fadeIn)
                 {
+                    if (!HasFade)
+                    {
+                        CompleteLevelTransition();
+                        return;
+                    }
                     if (alpha < 1f)
                     {
                         alpha += Time.deltaTime / 1.5f; //1.5 sec
@@ -70,33 +82,16 @@ void Start()
                     }
                     else
                     {
-                        fadeIn = false;
-                        if (level < mazes.Length)
-                        {
-                            if (GetRecord(level.ToString()) == 0 || GetRecord(level.ToString()) > cTime)
-                            {
-                                SetRecord(level.ToString(), cTime);
-                            }
-                            string newRegistry = PlayerPrefs.GetString("PlayerRegistry");
-                            newRegistry += "✓ Fase " + level + " concluida em " + cTime + " segundos.\n";
-                            PlayerPrefs.SetString("PlayerRegistry", newRegistry);
-                            LoadNewLevel();
-                            /*if (GetRecord(level.ToString()) == 0)
-                            {
-                                rTimeT.text = "Recorde: X";
-                            }
-                            else
-                            {
-                                rTimeT.text = "Recorde: " + GetRecord(level.ToString());
-                            }*/
-                            cTime = 0;
-                            //cTimeT.text = cTime.ToString();
-                            fadeOut = true;
-                        }
+                        CompleteLevelTransition();
                     }
                 }
                 else if (fadeOut)
                 {
+                    if (!HasFade)
+                    {
+                        fadeOut = false;
+                        return;
+                    }
                     if (alpha > 0f)
                     {
                         alpha -= Time.deltaTime / 1.5f; //1.5 sec
@@ -114,8 +109,15 @@ void Start()
                 else if (win)
                 {
                     controls.showCanvas = true;
-                    fadeIn = true;
-                    alpha = fadeImage.color.a;
+                    if (HasFade)
+                    {
+                        fadeIn = true;
+                        alpha = fadeImage.color.a;
+                    }
+                    else
+                    {
+                        CompleteLevelTransition();
+                    }
                 }
             }
         }
@@ -151,7 +153,7 @@ void Start()
         }
     }
 
-private void LoadNewLevel()
+    private void LoadNewLevel()
     {
         DestroyLines();
         Destroy(currentMaze);
@@ -190,11 +192,28 @@ private void LoadNewLevel()
         return level;
     }
 
+    private void CompleteLevelTransition()
+    {
+        fadeIn = false;
+        if (level < mazes.Length)
+        {
+            if (GetRecord(level.ToString()) == 0 || GetRecord(level.ToString()) > cTime)
+            {
+                SetRecord(level.ToString(), cTime);
+            }
+            string newRegistry = PlayerPrefs.GetString("PlayerRegistry");
+            newRegistry += "✓ Fase " + level + " concluida em " + cTime + " segundos.\n";
+            PlayerPrefs.SetString("PlayerRegistry", newRegistry);
+            LoadNewLevel();
+            cTime = 0;
+            fadeOut = HasFade;
+        }
+    }
 
-private void ParentCurrentMaze()
+    private void ParentCurrentMaze()
     {
         currentMaze.transform.SetParent(gameElementsRoot, false);
-        currentMaze.transform.localPosition = new Vector3(0f, 0f, -1144.8628f);
+        currentMaze.transform.localPosition = new Vector3(0.2f, 3.2f, -1144.8628f);
         currentMaze.transform.localRotation = Quaternion.identity;
     }
 }

@@ -17,10 +17,14 @@ public class S2LifeManager : MonoBehaviour
     private GameObject[] gameComponents;
     [SerializeField]
     private RawImage fadeImage;
+    private bool HasFade => fadeImage != null;
 
     void Start()
     {
-        fadeImage = GameObject.Find("Fade").GetComponent<RawImage>();
+        if (fadeImage == null && fade != null)
+        {
+            fadeImage = fade.GetComponent<RawImage>();
+        }
         lifes = 6;
     }
 
@@ -28,6 +32,12 @@ public class S2LifeManager : MonoBehaviour
     {
         if (fadeIn)
         {
+            if (!HasFade)
+            {
+                fadeIn = false;
+                ExecutePendingAction();
+                return;
+            }
             fade.SetActive(true);
             if (alpha < 1f)
             {
@@ -41,41 +51,18 @@ public class S2LifeManager : MonoBehaviour
             else
             {
                 fadeIn = false;
-                if (changeToGO)
-                {
-                    BackAction.onGameOver = true;
-                    Destroy(gameElements);
-                    /*for (int i = 0; i < gameComponents.Length; i++)
-                    {
-                        gameComponents[i].SetActive(false);
-                    }*/
-                    gameOverScreen.SetActive(true);
-                }
-                else if (changeToWin)
-                {
-                    BackAction.onGameOver = true;
-                    Destroy(gameElements);
-                    for (int i = 0; i < gameComponents.Length; i++)
-                    {
-                        gameComponents[i].SetActive(false);
-                    }
-                    winScreen.SetActive(true);
-                }
-                else if (restartGame)
-                {
-                    BackAction.onGameOver = false;
-                    SceneManager.LoadScene("Labyrinth");
-                }
-                else if (goToMenu)
-                {
-                    BackAction.onGameOver = false;
-                    SceneManager.LoadScene("Main Menu");
-                }
+                ExecutePendingAction();
                 fadeOut = true;
             }
         }
         else if (fadeOut)
         {
+            if (!HasFade)
+            {
+                fadeOut = false;
+                ResetTransitionFlags();
+                return;
+            }
             if (alpha > 0f)
             {
                 alpha -= Time.deltaTime / 1.5f; //1.5 sec
@@ -88,10 +75,7 @@ public class S2LifeManager : MonoBehaviour
             else
             {
                 fadeOut = false;
-                changeToGO = false;
-                changeToWin = false;
-                goToMenu = false;
-                restartGame = false;
+                ResetTransitionFlags();
                 fade.SetActive(false);
             }
         }
@@ -142,5 +126,46 @@ public class S2LifeManager : MonoBehaviour
     {
         goToMenu = true;
         fadeIn = true;
+    }
+
+    private void ExecutePendingAction()
+    {
+        if (changeToGO)
+        {
+            BackAction.onGameOver = true;
+            Destroy(gameElements);
+            gameOverScreen.SetActive(true);
+        }
+        else if (changeToWin)
+        {
+            BackAction.onGameOver = true;
+            Destroy(gameElements);
+            for (int i = 0; i < gameComponents.Length; i++)
+            {
+                if (gameComponents[i] != null)
+                {
+                    gameComponents[i].SetActive(false);
+                }
+            }
+            winScreen.SetActive(true);
+        }
+        else if (restartGame)
+        {
+            BackAction.onGameOver = false;
+            SceneManager.LoadScene("Labyrinth");
+        }
+        else if (goToMenu)
+        {
+            BackAction.onGameOver = false;
+            SceneManager.LoadScene("Main Menu");
+        }
+    }
+
+    private void ResetTransitionFlags()
+    {
+        changeToGO = false;
+        changeToWin = false;
+        goToMenu = false;
+        restartGame = false;
     }
 }

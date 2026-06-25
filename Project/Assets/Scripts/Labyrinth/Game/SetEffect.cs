@@ -19,7 +19,8 @@ public class SetEffect : MonoBehaviour
         if(timeCounter >= 0.4f)
         {
             timeCounter = 0f;
-            neurotransmissor = Instantiate(effect, new Vector3(gameObject.GetComponent<LineRenderer>().GetPosition(0).x, gameObject.GetComponent<LineRenderer>().GetPosition(0).y, gameObject.GetComponent<LineRenderer>().GetPosition(0).z), Quaternion.identity);
+            Vector3 spawnPosition = transform.TransformPoint(gameObject.GetComponent<LineRenderer>().GetPosition(0));
+            neurotransmissor = Instantiate(effect, spawnPosition, Quaternion.identity);
             neurotransmissor.transform.SetParent(transform);
             neurotransmissor.GetComponent<EffectManager>().buttonID = buttonID;
         }

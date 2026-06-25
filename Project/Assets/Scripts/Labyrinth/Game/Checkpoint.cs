@@ -6,10 +6,16 @@ public class Checkpoint : MonoBehaviour
 {
     private LineCreator lineCreator;
     private int id;
+
     private void Start()
     {
         id = (int.Parse((gameObject.name[7].ToString())) - 1);
         lineCreator = GameObject.Find("Manager").GetComponent<LineCreator>();
+    }
+
+    public int GetButtonId()
+    {
+        return id;
     }
 
 

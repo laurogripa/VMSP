@@ -8,6 +8,9 @@ public class LineCreator : MonoBehaviour
     public GameObject linePrefab, currentLine;
     private Transform lineBox;
     private ManageControls controls;
+    private S2LifeManager lifeManager;
+    private Checkpoint[] checkpoints;
+    private LineDestroyer[] lineDestroyers;
     public LineRenderer lineRenderer;
     public EdgeCollider2D edgeCollider;
     public List<Vector2> fingerPositions;
@@ -21,6 +24,9 @@ public class LineCreator : MonoBehaviour
     {
         controls = GameObject.Find("Neuron").GetComponent<ManageControls>();
         lineBox = GameObject.Find("Line Box").GetComponent<Transform>();
+        lifeManager = FindObjectOfType<S2LifeManager>(true);
+        checkpoints = FindObjectsOfType<Checkpoint>(true);
+        lineDestroyers = FindObjectsOfType<LineDestroyer>(true);
     }
 
     void Update()
@@ -37,7 +43,7 @@ public class LineCreator : MonoBehaviour
                     }
                     if (Input.GetMouseButton(0))
                     {
-                        Vector2 tempFingerPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        Vector2 tempFingerPos = GetLocalPointerPosition();
                         if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > .1f)
                         {
                             UpdateLine(tempFingerPos);
@@ -50,7 +56,7 @@ public class LineCreator : MonoBehaviour
                         newRegistry += "ⓧ Colisão Detectada\n";
                         PlayerPrefs.SetString("PlayerRegistry", newRegistry);
                         currentLine.GetComponent<Renderer>().material = lineErrorMaterial;
-                        GameObject.Find("Lifes").GetComponent<S2LifeManager>().ChangeLife(true);
+                        lifeManager.ChangeLife(true);
                         destroyLine = false;
                         waiting = true;
                     }
@@ -78,15 +84,17 @@ public class LineCreator : MonoBehaviour
         {
             currentLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
             currentLine.name = "Line";
-            currentLine.transform.SetParent(gameObject.transform);
+            currentLine.transform.SetParent(gameObject.transform, false);
             lineRenderer = currentLine.GetComponent<LineRenderer>();
             edgeCollider = currentLine.GetComponent<EdgeCollider2D>();
+            lineRenderer.useWorldSpace = false;
             fingerPositions.Clear();
-            fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            fingerPositions.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 pointerPosition = GetLocalPointerPosition();
+            fingerPositions.Add(pointerPosition);
+            fingerPositions.Add(pointerPosition);
             lineRenderer.SetPosition(0, fingerPositions[0]);
             lineRenderer.SetPosition(1, fingerPositions[1]);
-            edgeCollider.points = fingerPositions.ToArray();
+            UpdateEdgeCollider();
         }
     }
     void UpdateLine(Vector2 newFingerPos)
@@ -96,8 +104,22 @@ public class LineCreator : MonoBehaviour
             fingerPositions.Add(newFingerPos);
             lineRenderer.positionCount++;
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, newFingerPos);
-            edgeCollider.points = fingerPositions.ToArray();
+            UpdateEdgeCollider();
         }
+    }
+
+    private void UpdateEdgeCollider()
+    {
+        edgeCollider.points = fingerPositions.ToArray();
+        Physics2D.SyncTransforms();
+        CheckCheckpointOverlap();
+        CheckHazardOverlap();
+    }
+
+    private Vector2 GetLocalPointerPosition()
+    {
+        Vector3 pointerWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return transform.InverseTransformPoint(pointerWorldPosition);
     }
 
     public void SuccessLine(int id)
@@ -111,6 +133,42 @@ public class LineCreator : MonoBehaviour
         successLines.Add(newCorrectLine);
         Destroy(currentLine);
     }
-    
-    
+
+    private void CheckCheckpointOverlap()
+    {
+        if (currentLine == null || edgeCollider == null || !edgeCollider.enabled)
+        {
+            return;
+        }
+
+        for (int i = 0; i < checkpoints.Length; i++)
+        {
+            Collider2D checkpointCollider = checkpoints[i].GetComponent<Collider2D>();
+            if (checkpointCollider != null && edgeCollider.Distance(checkpointCollider).isOverlapped)
+            {
+                currentLine.GetComponent<Rigidbody2D>().isKinematic = true;
+                edgeCollider.enabled = false;
+                SuccessLine(checkpoints[i].GetButtonId());
+                return;
+            }
+        }
+    }
+
+    private void CheckHazardOverlap()
+    {
+        if (currentLine == null || edgeCollider == null || waiting || destroyLine)
+        {
+            return;
+        }
+
+        for (int i = 0; i < lineDestroyers.Length; i++)
+        {
+            Collider2D hazardCollider = lineDestroyers[i].GetComponent<Collider2D>();
+            if (hazardCollider != null && edgeCollider.Distance(hazardCollider).isOverlapped)
+            {
+                destroyLine = true;
+                return;
+            }
+        }
+    }
 }
