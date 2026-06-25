@@ -35,19 +35,17 @@ public class LineCreator : MonoBehaviour
         {
             if (!controls.showCanvas)
             {
-                if (!waiting && controls.allowDraw || !waiting && !controls.allowDraw && GameObject.Find("Line") != null)
+                if (!waiting && controls.allowDraw)
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (currentLine == null)
                     {
                         CreateLine();
                     }
-                    if (Input.GetMouseButton(0))
+
+                    Vector2 tempFingerPos = GetLocalPointerPosition();
+                    if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > .1f)
                     {
-                        Vector2 tempFingerPos = GetLocalPointerPosition();
-                        if (Vector2.Distance(tempFingerPos, fingerPositions[fingerPositions.Count - 1]) > .1f)
-                        {
-                            UpdateLine(tempFingerPos);
-                        }
+                        UpdateLine(tempFingerPos);
                     }
 
                     if (destroyLine)
@@ -59,23 +57,31 @@ public class LineCreator : MonoBehaviour
                         lifeManager.ChangeLife(true);
                         destroyLine = false;
                         waiting = true;
+                        controls.ResetCharge();
                     }
                 }
-                else
+                else if (currentLine != null || waiting)
                 {
                     waitedTime += Time.deltaTime;
                     if (waitedTime >= 0.25f)
                     {
                         Destroy(currentLine);
+                        currentLine = null;
                         waitedTime = 0;
                         waiting = false;
+                        controls.ResetCharge();
                     }
+                }
+                else
+                {
+                    waitedTime = 0f;
                 }
             }
         }
         else if(currentLine != null)
         {
             Destroy(currentLine);
+            controls.ResetCharge();
         }
     }
     void CreateLine()
@@ -125,13 +131,22 @@ public class LineCreator : MonoBehaviour
     public void SuccessLine(int id)
     {
         GameObject newCorrectLine = Instantiate(currentLine);
-        newCorrectLine.transform.SetParent(lineBox);
+        newCorrectLine.transform.SetParent(lineBox, false);
+        newCorrectLine.transform.localPosition = Vector3.zero;
+        newCorrectLine.transform.localRotation = Quaternion.identity;
+        newCorrectLine.transform.localScale = Vector3.one;
         newCorrectLine.GetComponent<Renderer>().material = lineSuccessMaterial;
         newCorrectLine.GetComponent<Renderer>().sortingOrder = -1;
         newCorrectLine.GetComponent<SetEffect>().enabled = true;
         newCorrectLine.GetComponent<SetEffect>().buttonID = id;
         successLines.Add(newCorrectLine);
         Destroy(currentLine);
+        controls.ResetCharge();
+    }
+
+    public bool IsAutoDrawActive()
+    {
+        return controls.allowDraw;
     }
 
     private void CheckCheckpointOverlap()
@@ -171,4 +186,5 @@ public class LineCreator : MonoBehaviour
             }
         }
     }
+
 }

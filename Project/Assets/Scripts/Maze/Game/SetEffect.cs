@@ -19,9 +19,11 @@ public class SetEffect : MonoBehaviour
         if(timeCounter >= 0.4f)
         {
             timeCounter = 0f;
-            Vector3 spawnPosition = transform.TransformPoint(gameObject.GetComponent<LineRenderer>().GetPosition(0));
-            neurotransmissor = Instantiate(effect, spawnPosition, Quaternion.identity);
-            neurotransmissor.transform.SetParent(transform);
+            LineRenderer lineRenderer = gameObject.GetComponent<LineRenderer>();
+            neurotransmissor = Instantiate(effect);
+            neurotransmissor.transform.SetParent(transform, false);
+            neurotransmissor.transform.localPosition = lineRenderer.GetPosition(0);
+            neurotransmissor.transform.localRotation = Quaternion.identity;
             neurotransmissor.GetComponent<EffectManager>().buttonID = buttonID;
         }
         timeCounter += Time.deltaTime;
