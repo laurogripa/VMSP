@@ -14,7 +14,7 @@ public class SetOrientationScript : MonoBehaviour
                 case "Main Menu":
                     Screen.orientation = ScreenOrientation.Portrait;
                     break;
-                case "Labyrinth":
+                case "Maze":
                     Screen.orientation = ScreenOrientation.LandscapeLeft;
                     break;
                 case "Genius":

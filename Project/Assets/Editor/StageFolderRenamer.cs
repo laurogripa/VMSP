@@ -7,14 +7,14 @@ public static class StageFolderRenamer
     public static void Rename()
     {
         RenameFolder("Assets/Sprites/Stage 0", "Assets/Sprites/Main Menu");
-        RenameFolder("Assets/Sprites/Stage 1", "Assets/Sprites/Labyrinth");
+        RenameFolder("Assets/Sprites/Stage 1", "Assets/Sprites/Maze");
         RenameFolder("Assets/Sprites/Stage 2", "Assets/Sprites/Genius");
 
-        RenameFolder("Assets/Scripts/Stage 1", "Assets/Scripts/Labyrinth");
+        RenameFolder("Assets/Scripts/Stage 1", "Assets/Scripts/Maze");
         RenameFolder("Assets/Scripts/Stage 2", "Assets/Scripts/Genius");
 
-        RenameFolder("Assets/Prefabs/Stage 1", "Assets/Prefabs/Labyrinth");
-        RenameFolder("Assets/Materials/Stage 1", "Assets/Materials/Labyrinth");
+        RenameFolder("Assets/Prefabs/Stage 1", "Assets/Prefabs/Maze");
+        RenameFolder("Assets/Materials/Stage 1", "Assets/Materials/Maze");
         RenameFolder("Assets/Resources/Stage 2", "Assets/Resources/Genius");
 
         AssetDatabase.SaveAssets();

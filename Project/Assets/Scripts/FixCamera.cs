@@ -18,7 +18,7 @@ void Start()
                 case "Main Menu":
                     Screen.orientation = ScreenOrientation.Portrait;
                     break;
-                case "Labyrinth":
+                case "Maze":
                     Screen.orientation = ScreenOrientation.LandscapeLeft;
                     break;
                 case "Genius":
@@ -26,7 +26,7 @@ void Start()
                     break;
             }
         }
-        if (SceneManager.GetActiveScene().name == "Labyrinth")
+        if (SceneManager.GetActiveScene().name == "Maze")
         {
             gameCam.orthographicSize = 3.05f;
             return;

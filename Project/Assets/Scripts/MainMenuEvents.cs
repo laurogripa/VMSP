@@ -12,7 +12,7 @@ public class MainMenuEvents : MonoBehaviour
     private VisualElement _buttonsElement;
     private VisualElement _stagesElement;
 
-    private Button _labyrinthButton;
+    private Button _mazeButton;
     private Button _geniusButton;
     private Button _defenseButton;
     private Button _selectButton;
@@ -28,7 +28,7 @@ public class MainMenuEvents : MonoBehaviour
         _exitButton = _document.rootVisualElement.Q<Button>("Exit");
         _returnButton = _document.rootVisualElement.Q<Button>("Return");
 
-        _labyrinthButton = _document.rootVisualElement.Q<Button>("Labyrinth");
+        _mazeButton = _document.rootVisualElement.Q<Button>("Maze");
         _geniusButton = _document.rootVisualElement.Q<Button>("Genius");
         _defenseButton = _document.rootVisualElement.Q<Button>("Defense");
         _selectButton = _document.rootVisualElement.Q<Button>("Select");
@@ -37,7 +37,7 @@ public class MainMenuEvents : MonoBehaviour
         _exitButton.RegisterCallback<ClickEvent>(OnExitButtonClicked);
         _returnButton.RegisterCallback<ClickEvent>(OnReturnButtonClicked);
 
-        _labyrinthButton.RegisterCallback<ClickEvent>(OnLabyrinthButtonClicked);
+        _mazeButton.RegisterCallback<ClickEvent>(OnMazeButtonClicked);
         _geniusButton.RegisterCallback<ClickEvent>(OnGeniusButtonClicked);
         _defenseButton.RegisterCallback<ClickEvent>(OnDefenseButtonClicked);
         _selectButton.RegisterCallback<ClickEvent>(OnSelectButtonClicked);
@@ -59,9 +59,9 @@ public class MainMenuEvents : MonoBehaviour
         Application.Quit();
     }
 
-    private void OnLabyrinthButtonClicked(ClickEvent evt)
+    private void OnMazeButtonClicked(ClickEvent evt)
     {
-        SceneManager.LoadScene("Labyrinth");
+        SceneManager.LoadScene("Maze");
     }
 
     private void OnGeniusButtonClicked(ClickEvent evt)
@@ -83,7 +83,7 @@ public class MainMenuEvents : MonoBehaviour
     {
         _playButton.UnregisterCallback<ClickEvent>(OnPlayButtonClicked);
         _exitButton.UnregisterCallback<ClickEvent>(OnExitButtonClicked);
-        _labyrinthButton.UnregisterCallback<ClickEvent>(OnLabyrinthButtonClicked);
+        _mazeButton.UnregisterCallback<ClickEvent>(OnMazeButtonClicked);
         _geniusButton.UnregisterCallback<ClickEvent>(OnGeniusButtonClicked);
         _defenseButton.UnregisterCallback<ClickEvent>(OnDefenseButtonClicked);
         _selectButton.UnregisterCallback<ClickEvent>(OnSelectButtonClicked);
