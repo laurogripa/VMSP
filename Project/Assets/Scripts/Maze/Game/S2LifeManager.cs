@@ -17,6 +17,7 @@ public class S2LifeManager : MonoBehaviour
     private GameObject[] gameComponents;
     [SerializeField]
     private RawImage fadeImage;
+    private Text gameOverMessageText;
     private bool HasFade => fadeImage != null;
 
     void Start()
@@ -25,6 +26,7 @@ public class S2LifeManager : MonoBehaviour
         {
             fadeImage = fade.GetComponent<RawImage>();
         }
+        ConfigureGameOverScreen();
         lifes = 6;
     }
 
@@ -167,5 +169,86 @@ public class S2LifeManager : MonoBehaviour
         changeToWin = false;
         goToMenu = false;
         restartGame = false;
+    }
+
+    private void ConfigureGameOverScreen()
+    {
+        if (gameOverScreen == null)
+        {
+            return;
+        }
+
+        RectTransform screenRect = gameOverScreen.GetComponent<RectTransform>();
+        StretchRect(screenRect);
+
+        Transform backgroundTransform = gameOverScreen.transform.Find("Background");
+        if (backgroundTransform != null)
+        {
+            StretchRect(backgroundTransform as RectTransform);
+            Image background = backgroundTransform.GetComponent<Image>();
+            if (background != null)
+            {
+                background.sprite = null;
+                background.color = new Color(0.07f, 0.1f, 0.22f, 1f);
+            }
+        }
+
+        Transform messageTransform = gameOverScreen.transform.Find("Message");
+        if (messageTransform == null)
+        {
+            GameObject messageObject = new GameObject("Message", typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+            messageTransform = messageObject.transform;
+            messageTransform.SetParent(gameOverScreen.transform, false);
+            messageTransform.SetSiblingIndex(1);
+
+            RectTransform messageRect = messageObject.GetComponent<RectTransform>();
+            messageRect.anchorMin = new Vector2(0.5f, 1f);
+            messageRect.anchorMax = new Vector2(0.5f, 1f);
+            messageRect.pivot = new Vector2(0.5f, 1f);
+            messageRect.anchoredPosition = new Vector2(0f, -72f);
+            messageRect.sizeDelta = new Vector2(920f, 220f);
+
+            gameOverMessageText = messageObject.GetComponent<Text>();
+            Font messageFont = null;
+            if (gameComponents != null && gameComponents.Length > 0 && gameComponents[0] != null)
+            {
+                messageFont = gameComponents[0].GetComponent<Text>()?.font;
+            }
+            gameOverMessageText.font = messageFont != null
+                ? messageFont
+                : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            gameOverMessageText.alignment = TextAnchor.UpperCenter;
+            gameOverMessageText.supportRichText = true;
+            gameOverMessageText.horizontalOverflow = HorizontalWrapMode.Wrap;
+            gameOverMessageText.verticalOverflow = VerticalWrapMode.Overflow;
+            gameOverMessageText.text = "<color=#FC5C1D><size=68><b>Fim de jogo!</b></size></color>\n<size=44><color=#EAF6FF>Tentar novamente?</color></size>";
+            gameOverMessageText.color = Color.white;
+
+            Outline outline = messageObject.AddComponent<Outline>();
+            outline.effectColor = new Color(0.04f, 0.06f, 0.14f, 0.85f);
+            outline.effectDistance = new Vector2(2f, -2f);
+        }
+        else
+        {
+            gameOverMessageText = messageTransform.GetComponent<Text>();
+        }
+
+        if (gameOverMessageText != null)
+        {
+            gameOverMessageText.text = "<color=#FC5C1D><size=68><b>Fim de jogo!</b></size></color>\n<size=44><color=#EAF6FF>Tentar novamente?</color></size>";
+        }
+    }
+
+    private static void StretchRect(RectTransform rect)
+    {
+        if (rect == null)
+        {
+            return;
+        }
+
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
     }
 }

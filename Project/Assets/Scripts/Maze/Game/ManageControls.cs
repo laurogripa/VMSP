@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ManageControls : MonoBehaviour
 {
-    private const float HoverThreshold = 1f;
+    private const float HoverThreshold = 0.6f;
 
     public bool allowDraw;
     public bool showCanvas;
@@ -17,6 +17,7 @@ public class ManageControls : MonoBehaviour
     private Color baseColor;
     private Collider2D hitCollider;
     private Transform animatedVisual;
+    private NeuronElectricEffect electricEffect;
 
     void Start()
     {
@@ -46,6 +47,8 @@ public class ManageControls : MonoBehaviour
             baseScale = animatedVisual.localScale;
             baseRotation = animatedVisual.localRotation;
         }
+
+        EnsureElectricEffect();
 
         allowDraw = false;
         showCanvas = true;
@@ -98,11 +101,16 @@ public class ManageControls : MonoBehaviour
             {
                 isCharged = true;
                 ApplyChargedVisual();
+                PlayElectricEffect();
             }
             return;
         }
 
         ApplyChargedVisual();
+        if (isCharged || allowDraw)
+        {
+            EnsureElectricEffectPlaying();
+        }
         if (!isHovering)
         {
             allowDraw = true;
@@ -122,6 +130,8 @@ public class ManageControls : MonoBehaviour
         {
             spriteRenderer.color = baseColor;
         }
+
+        StopElectricEffect();
     }
 
     public Vector2 GetStartLocalPosition(Transform relativeTo)
@@ -178,5 +188,56 @@ public class ManageControls : MonoBehaviour
         }
 
         return animatedVisual;
+    }
+
+    private void EnsureElectricEffect()
+    {
+        if (electricEffect != null)
+        {
+            return;
+        }
+
+        PolygonCollider2D polygonCollider = hitCollider as PolygonCollider2D;
+        if (polygonCollider == null)
+        {
+            return;
+        }
+
+        Transform effectParent = GetAnimatedVisual();
+        GameObject effectObject = new GameObject("NeuronElectricEffect");
+        effectObject.transform.SetParent(effectParent, false);
+        effectObject.transform.localPosition = Vector3.zero;
+        effectObject.transform.localRotation = Quaternion.identity;
+        effectObject.transform.localScale = Vector3.one;
+
+        electricEffect = effectObject.AddComponent<NeuronElectricEffect>();
+        int layerId = spriteRenderer != null ? spriteRenderer.sortingLayerID : 0;
+        int order = spriteRenderer != null ? spriteRenderer.sortingOrder + 1 : 6;
+        electricEffect.Initialize(polygonCollider, layerId, order);
+    }
+
+    private void PlayElectricEffect()
+    {
+        EnsureElectricEffect();
+        if (electricEffect != null)
+        {
+            electricEffect.Play();
+        }
+    }
+
+    private void EnsureElectricEffectPlaying()
+    {
+        if (electricEffect != null && !electricEffect.gameObject.activeSelf)
+        {
+            electricEffect.Play();
+        }
+    }
+
+    private void StopElectricEffect()
+    {
+        if (electricEffect != null)
+        {
+            electricEffect.Stop();
+        }
     }
 }

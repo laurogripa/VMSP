@@ -8,6 +8,7 @@ public class LineCreator : MonoBehaviour
     public GameObject linePrefab, currentLine;
     private Transform lineBox;
     private ManageControls controls;
+    private NextController nextController;
     private S2LifeManager lifeManager;
     private Checkpoint[] checkpoints;
     private LineDestroyer[] lineDestroyers;
@@ -23,6 +24,7 @@ public class LineCreator : MonoBehaviour
     private void Start()
     {
         controls = GameObject.Find("Neuron").GetComponent<ManageControls>();
+        nextController = GetComponent<NextController>();
         lineBox = GameObject.Find("Line Box").GetComponent<Transform>();
         lifeManager = FindObjectOfType<S2LifeManager>(true);
         checkpoints = FindObjectsOfType<Checkpoint>(true);
@@ -130,6 +132,11 @@ public class LineCreator : MonoBehaviour
 
     public void SuccessLine(int id)
     {
+        if (nextController != null)
+        {
+            nextController.ShowLevelCompleteOverlay();
+        }
+
         GameObject newCorrectLine = Instantiate(currentLine);
         newCorrectLine.transform.SetParent(lineBox, false);
         newCorrectLine.transform.localPosition = Vector3.zero;
